@@ -1,0 +1,228 @@
+{
+ "X01_catch_up": {
+  "round1": {
+   "years": 15,
+   "picks": 300,
+   "hits": 14,
+   "losers": 34,
+   "loser_rate": 0.11333333333333333,
+   "hit_rate": 0.04666666666666667,
+   "lift": 1.1666666666666667,
+   "t_hit": 0.869917672401682,
+   "picks_cagr": 0.022959168786784723,
+   "sp_cagr": 0.0460457070630107,
+   "sp_ew_cagr": 0.09421595999664323,
+   "excess_mean": -0.012309073552221154,
+   "t_excess": -0.2843383543995287,
+   "coverage": 0.9997295369760807
+  },
+  "promoted_to_round2": false
+ },
+ "X02_winner_industries": {
+  "round1": {
+   "years": 14,
+   "picks": 280,
+   "hits": 9,
+   "losers": 15,
+   "loser_rate": 0.05357142857142857,
+   "hit_rate": 0.03214285714285714,
+   "lift": 0.8035714285714285,
+   "t_hit": -0.789284674265061,
+   "picks_cagr": 0.03573701722403788,
+   "sp_cagr": 0.06021011797315112,
+   "sp_ew_cagr": 0.09004120530122606,
+   "excess_mean": -0.0025052757408912654,
+   "t_excess": -0.0693804228642757,
+   "coverage": 0.9972617320734611
+  },
+  "promoted_to_round2": false
+ },
+ "X03_text_theme_laggard": {
+  "round1": {
+   "years": 15,
+   "picks": 300,
+   "hits": 29,
+   "losers": 47,
+   "loser_rate": 0.15666666666666668,
+   "hit_rate": 0.09666666666666666,
+   "lift": 2.4166666666666665,
+   "t_hit": 2.8618671179510966,
+   "picks_cagr": 0.03565120855001758,
+   "sp_cagr": 0.0460457070630107,
+   "sp_ew_cagr": 0.09421595999664323,
+   "excess_mean": 0.026272465840884673,
+   "t_excess": 0.5020792492536634,
+   "coverage": 0.9317746030441892
+  },
+  "promoted_to_round2": true,
+  "round2": {
+   "years": 5,
+   "picks": 100,
+   "hits": 5,
+   "losers": 12,
+   "loser_rate": 0.12,
+   "hit_rate": 0.05,
+   "lift": 1.25,
+   "t_hit": 0.6324555320336759,
+   "picks_cagr": -0.0008417130054949595,
+   "sp_cagr": 0.10549306730845642,
+   "sp_ew_cagr": 0.06798684330513538,
+   "excess_mean": -0.09828739446689272,
+   "t_excess": -2.069568043357117,
+   "coverage": 0.9360364616404826
+  },
+  "promoted_to_round3": false
+ },
+ "X04_text_theme_momentum": {
+  "round1": {
+   "years": 15,
+   "picks": 300,
+   "hits": 18,
+   "losers": 15,
+   "loser_rate": 0.05,
+   "hit_rate": 0.06,
+   "lift": 1.5,
+   "t_hit": 1.2833778958394966,
+   "picks_cagr": 0.03150517215165949,
+   "sp_cagr": 0.0460457070630107,
+   "sp_ew_cagr": 0.09421595999664323,
+   "excess_mean": 0.004577477157641623,
+   "t_excess": 0.14131141137737502,
+   "coverage": 0.9317746030441892
+  },
+  "promoted_to_round2": false
+ },
+ "X05_first_profits": {
+  "round1": {
+   "years": 14,
+   "picks": 280,
+   "hits": 16,
+   "losers": 16,
+   "loser_rate": 0.05714285714285714,
+   "hit_rate": 0.05714285714285714,
+   "lift": 1.4285714285714286,
+   "t_hit": 1.166813843530555,
+   "picks_cagr": 0.06976865380081976,
+   "sp_cagr": 0.06021011797315112,
+   "sp_ew_cagr": 0.09004120530122606,
+   "excess_mean": 0.026249667102612163,
+   "t_excess": 0.7423479577959015,
+   "coverage": 0.8907974986750776
+  },
+  "promoted_to_round2": false
+ },
+ "X06_margin_expansion": {
+  "round1": {
+   "years": 14,
+   "picks": 280,
+   "hits": 12,
+   "losers": 17,
+   "loser_rate": 0.060714285714285714,
+   "hit_rate": 0.04285714285714286,
+   "lift": 1.0714285714285714,
+   "t_hit": 0.2473387769603375,
+   "picks_cagr": 0.06438718602977578,
+   "sp_cagr": 0.06021011797315112,
+   "sp_ew_cagr": 0.09004120530122606,
+   "excess_mean": 0.008083815665326162,
+   "t_excess": 0.2764849976606931,
+   "coverage": 0.9054783042276463
+  },
+  "promoted_to_round2": false
+ },
+ "X07_coiled_spring": {
+  "round1": {
+   "years": 15,
+   "picks": 300,
+   "hits": 11,
+   "losers": 15,
+   "loser_rate": 0.05,
+   "hit_rate": 0.03666666666666667,
+   "lift": 0.9166666666666666,
+   "t_hit": -0.2686353447586683,
+   "picks_cagr": 0.03889492772443681,
+   "sp_cagr": 0.0460457070630107,
+   "sp_ew_cagr": 0.09421595999664323,
+   "excess_mean": 0.003691046696521553,
+   "t_excess": 0.12794405444858994,
+   "coverage": 0.9993241211856299
+  },
+  "promoted_to_round2": false
+ },
+ "X08_sales_up_price_down": {
+  "round1": {
+   "years": 15,
+   "picks": 300,
+   "hits": 18,
+   "losers": 33,
+   "loser_rate": 0.11,
+   "hit_rate": 0.06,
+   "lift": 1.5,
+   "t_hit": 1.2247448713915892,
+   "picks_cagr": 0.009516113619139732,
+   "sp_cagr": 0.0460457070630107,
+   "sp_ew_cagr": 0.09421595999664323,
+   "excess_mean": 0.009994259839159091,
+   "t_excess": 0.1704407396661864,
+   "coverage": 0.9165571231683518
+  },
+  "promoted_to_round2": false
+ },
+ "X09_beaten_sector_best_firm": {
+  "round1": {
+   "years": 15,
+   "picks": 300,
+   "hits": 11,
+   "losers": 10,
+   "loser_rate": 0.03333333333333333,
+   "hit_rate": 0.03666666666666667,
+   "lift": 0.9166666666666666,
+   "t_hit": -0.3668996928526715,
+   "picks_cagr": 0.09807726383705884,
+   "sp_cagr": 0.0460457070630107,
+   "sp_ew_cagr": 0.09421595999664323,
+   "excess_mean": 0.04995281902879464,
+   "t_excess": 1.4053318608020766,
+   "coverage": 0.8905450673381206
+  },
+  "promoted_to_round2": false
+ },
+ "X10_like_5y_winners": {
+  "round1": {
+   "years": 14,
+   "picks": 280,
+   "hits": 13,
+   "losers": 16,
+   "loser_rate": 0.05714285714285714,
+   "hit_rate": 0.04642857142857143,
+   "lift": 1.1607142857142858,
+   "t_hit": 0.3342516087186937,
+   "picks_cagr": 0.03675701822664057,
+   "sp_cagr": 0.06021011797315112,
+   "sp_ew_cagr": 0.09004120530122606,
+   "excess_mean": -0.00391218993937439,
+   "t_excess": -0.10496329419069375,
+   "coverage": 0.9430821184219813
+  },
+  "promoted_to_round2": false
+ },
+ "X11_insider_buying_in_volatile": {
+  "round1": {
+   "years": 8,
+   "picks": 160,
+   "hits": 10,
+   "losers": 11,
+   "loser_rate": 0.06875,
+   "hit_rate": 0.0625,
+   "lift": 1.5625,
+   "t_hit": 1.2296340919151518,
+   "picks_cagr": 0.08719746352011781,
+   "sp_cagr": 0.06463357311619977,
+   "sp_ew_cagr": 0.07572881130783071,
+   "excess_mean": 0.03185332692673881,
+   "t_excess": 0.8819688180870873,
+   "coverage": 0.4958520943563476
+  },
+  "promoted_to_round2": false
+ }
+}

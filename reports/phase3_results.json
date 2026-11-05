@@ -1,0 +1,617 @@
+{
+ "p1_alpha_trend_1y": {
+  "slope_per_decade": 0.005173758753356694,
+  "t_hac": 0.9334889692627234,
+  "n": 88
+ },
+ "p1_by_decade_1y": {
+  "1920": {
+   "alpha": 1.985,
+   "n_forms": 3,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.535,
+   "beat_tbill": 0.481
+  },
+  "1930": {
+   "alpha": 1.907,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.847,
+   "beat_tbill": 0.452
+  },
+  "1940": {
+   "alpha": 1.909,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.425,
+   "beat_tbill": 0.679
+  },
+  "1950": {
+   "alpha": 1.869,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.485,
+   "beat_tbill": 0.713
+  },
+  "1960": {
+   "alpha": 1.87,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.66,
+   "beat_tbill": 0.528
+  },
+  "1970": {
+   "alpha": 1.942,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.905,
+   "beat_tbill": 0.515
+  },
+  "1980": {
+   "alpha": 1.947,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.433,
+   "beat_tbill": 0.573
+  },
+  "1990": {
+   "alpha": 1.919,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.495,
+   "beat_tbill": 0.612
+  },
+  "2000": {
+   "alpha": 1.944,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.442,
+   "beat_tbill": 0.547
+  },
+  "2010": {
+   "alpha": 1.929,
+   "n_forms": 5,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.346,
+   "beat_tbill": 0.756
+  }
+ },
+ "p1_alpha_trend_5y": {
+  "slope_per_decade": 0.008043789813154144,
+  "t_hac": 1.4083532986332004,
+  "n": 84
+ },
+ "p1_by_decade_5y": {
+  "1920": {
+   "alpha": 1.789,
+   "n_forms": 3,
+   "pl_better": 0.0,
+   "ln_better": 0.333,
+   "top4": NaN,
+   "beat_tbill": 0.113
+  },
+  "1930": {
+   "alpha": 1.903,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.9,
+   "top4": 0.695,
+   "beat_tbill": 0.592
+  },
+  "1940": {
+   "alpha": 1.988,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.439,
+   "beat_tbill": 0.885
+  },
+  "1950": {
+   "alpha": 1.985,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.528,
+   "beat_tbill": 0.832
+  },
+  "1960": {
+   "alpha": 1.984,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.694,
+   "beat_tbill": 0.528
+  },
+  "1970": {
+   "alpha": 1.956,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.86,
+   "beat_tbill": 0.519
+  },
+  "1980": {
+   "alpha": 1.931,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.483,
+   "beat_tbill": 0.672
+  },
+  "1990": {
+   "alpha": 1.972,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.9,
+   "top4": 0.429,
+   "beat_tbill": 0.681
+  },
+  "2000": {
+   "alpha": 1.985,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.9,
+   "top4": 0.421,
+   "beat_tbill": 0.609
+  },
+  "2010": {
+   "alpha": 1.955,
+   "n_forms": 1,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.313,
+   "beat_tbill": 0.913
+  }
+ },
+ "p1_alpha_trend_10y": {
+  "slope_per_decade": -0.006642169774703497,
+  "t_hac": -1.3457057152655028,
+  "n": 79
+ },
+ "p1_by_decade_10y": {
+  "1920": {
+   "alpha": 1.99,
+   "n_forms": 3,
+   "pl_better": 0.0,
+   "ln_better": 0.0,
+   "top4": 1.002,
+   "beat_tbill": 0.289
+  },
+  "1930": {
+   "alpha": 1.873,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.8,
+   "top4": 0.45,
+   "beat_tbill": 0.79
+  },
+  "1940": {
+   "alpha": 1.909,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.491,
+   "beat_tbill": 0.946
+  },
+  "1950": {
+   "alpha": 1.966,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.503,
+   "beat_tbill": 0.885
+  },
+  "1960": {
+   "alpha": 1.9,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.8,
+   "top4": 0.962,
+   "beat_tbill": 0.434
+  },
+  "1970": {
+   "alpha": 1.974,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 1.0,
+   "top4": 0.606,
+   "beat_tbill": 0.612
+  },
+  "1980": {
+   "alpha": 1.829,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.8,
+   "top4": 0.437,
+   "beat_tbill": 0.719
+  },
+  "1990": {
+   "alpha": 1.896,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.6,
+   "top4": 0.461,
+   "beat_tbill": 0.67
+  },
+  "2000": {
+   "alpha": 1.845,
+   "n_forms": 6,
+   "pl_better": 0.0,
+   "ln_better": 0.5,
+   "top4": 0.492,
+   "beat_tbill": 0.652
+  }
+ },
+ "p1_alpha_trend_20y": {
+  "slope_per_decade": 0.003865650734785472,
+  "t_hac": 0.3485655195669811,
+  "n": 69
+ },
+ "p1_by_decade_20y": {
+  "1920": {
+   "alpha": 1.875,
+   "n_forms": 3,
+   "pl_better": 0.0,
+   "ln_better": 0.0,
+   "top4": 0.681,
+   "beat_tbill": 0.515
+  },
+  "1930": {
+   "alpha": 1.662,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.3,
+   "top4": 0.528,
+   "beat_tbill": 0.887
+  },
+  "1940": {
+   "alpha": 1.878,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.2,
+   "top4": 0.507,
+   "beat_tbill": 0.95
+  },
+  "1950": {
+   "alpha": 1.805,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.3,
+   "top4": 0.556,
+   "beat_tbill": 0.793
+  },
+  "1960": {
+   "alpha": 1.684,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.9,
+   "top4": 0.735,
+   "beat_tbill": 0.53
+  },
+  "1970": {
+   "alpha": 1.684,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.7,
+   "top4": 0.506,
+   "beat_tbill": 0.663
+  },
+  "1980": {
+   "alpha": 1.738,
+   "n_forms": 10,
+   "pl_better": 0.0,
+   "ln_better": 0.2,
+   "top4": 0.46,
+   "beat_tbill": 0.661
+  },
+  "1990": {
+   "alpha": 1.93,
+   "n_forms": 6,
+   "pl_better": 0.0,
+   "ln_better": 0.0,
+   "top4": 0.453,
+   "beat_tbill": 0.74
+  }
+ },
+ "p2_test": {
+  "ew_minus_cw_5y": {
+   "beta": -0.43593619861445543,
+   "t_hac": -1.925434706070081,
+   "n": 85,
+   "r2": 0.05887088568025656
+  },
+  "nonoverlap_5y": {
+   "beta": 0.05318577837721422,
+   "t": 0.11924340377586928,
+   "n": 17
+  },
+  "ew_minus_cw_1y": {
+   "beta": -0.08537098247633226,
+   "t_hac": -0.8882631055778107,
+   "n": 89,
+   "r2": 0.017156489918393802
+  }
+ },
+ "p4": {
+  "p_tail_given_tail": 0.0443073471676949,
+  "n": 1783,
+  "base_rate": 0.05,
+  "pairs": 29891
+ },
+ "p5_late_entry": [
+  {
+   "years_before": -1,
+   "n": 497,
+   "mean_ret": 0.0518,
+   "mean_excess": -0.0214,
+   "median_excess": -0.0681
+  },
+  {
+   "years_before": 1,
+   "n": 434,
+   "mean_ret": 0.4891,
+   "mean_excess": 0.3975,
+   "median_excess": 0.2011
+  },
+  {
+   "years_before": 3,
+   "n": 402,
+   "mean_ret": 2.4714,
+   "mean_excess": 2.0024,
+   "median_excess": 0.6893
+  },
+  {
+   "years_before": 5,
+   "n": 366,
+   "mean_ret": 4.8795,
+   "mean_excess": 4.0179,
+   "median_excess": 1.2919
+  }
+ ],
+ "p5_tail_capture": [
+  {
+   "formation": "1996-06-30 00:00:00",
+   "n_tail": 75,
+   "share_tail_not_in_sp": 0.773,
+   "wealth_share_not_in_sp": 0.634,
+   "share_later_joined": 0.569
+  },
+  {
+   "formation": "1997-06-30 00:00:00",
+   "n_tail": 75,
+   "share_tail_not_in_sp": 0.693,
+   "wealth_share_not_in_sp": 0.515,
+   "share_later_joined": 0.558
+  },
+  {
+   "formation": "1998-06-30 00:00:00",
+   "n_tail": 75,
+   "share_tail_not_in_sp": 0.707,
+   "wealth_share_not_in_sp": 0.499,
+   "share_later_joined": 0.472
+  },
+  {
+   "formation": "1999-06-30 00:00:00",
+   "n_tail": 75,
+   "share_tail_not_in_sp": 0.76,
+   "wealth_share_not_in_sp": 0.477,
+   "share_later_joined": 0.421
+  },
+  {
+   "formation": "2000-06-30 00:00:00",
+   "n_tail": 75,
+   "share_tail_not_in_sp": 0.573,
+   "wealth_share_not_in_sp": 0.232,
+   "share_later_joined": 0.465
+  },
+  {
+   "formation": "2001-06-30 00:00:00",
+   "n_tail": 75,
+   "share_tail_not_in_sp": 0.68,
+   "wealth_share_not_in_sp": 0.378,
+   "share_later_joined": 0.569
+  },
+  {
+   "formation": "2002-06-30 00:00:00",
+   "n_tail": 75,
+   "share_tail_not_in_sp": 0.827,
+   "wealth_share_not_in_sp": 0.398,
+   "share_later_joined": 0.548
+  },
+  {
+   "formation": "2003-06-30 00:00:00",
+   "n_tail": 75,
+   "share_tail_not_in_sp": 0.787,
+   "wealth_share_not_in_sp": 0.501,
+   "share_later_joined": 0.61
+  },
+  {
+   "formation": "2004-06-30 00:00:00",
+   "n_tail": 75,
+   "share_tail_not_in_sp": 0.733,
+   "wealth_share_not_in_sp": 0.342,
+   "share_later_joined": 0.709
+  },
+  {
+   "formation": "2005-06-30 00:00:00",
+   "n_tail": 75,
+   "share_tail_not_in_sp": 0.707,
+   "wealth_share_not_in_sp": 0.286,
+   "share_later_joined": 0.623
+  }
+ ],
+ "p8": {
+  "sp_membership_median_years_1996plus": 9.00205338809035,
+  "sp_membership_n": 1237,
+  "top500_by_entry_era": {
+   "1920": {
+    "n": 908,
+    "median_listed_years": 38.42026009582478,
+    "p_distress_death_20y": 0.04486171411610096,
+    "p_any_exit_20y": 0.2676211453744496
+   },
+   "1940": {
+    "n": 313,
+    "median_listed_years": 37.16906228610541,
+    "p_distress_death_20y": 0.014093081056564039,
+    "p_any_exit_20y": 0.2619808306709266
+   },
+   "1960": {
+    "n": 485,
+    "median_listed_years": 22.417522245037645,
+    "p_distress_death_20y": 0.014609512190419616,
+    "p_any_exit_20y": 0.4680412371134022
+   },
+   "1980": {
+    "n": 637,
+    "median_listed_years": 13.59069130732375,
+    "p_distress_death_20y": 0.07389579243737887,
+    "p_any_exit_20y": 0.6238593983674133
+   },
+   "2000": {
+    "n": 556,
+    "median_listed_years": 12.336755646817249,
+    "p_distress_death_20y": 0.10734129409136017,
+    "p_any_exit_20y": 0.5542829361684526
+   }
+  }
+ },
+ "p3": {
+  "slope": -0.09641103958743796,
+  "t": -22.20336203540222,
+  "n": 7106
+ },
+ "p3_by_formation": {
+  "2000-06-30": {
+   "slope": -0.11369298241259912,
+   "t": -11.190586994908063,
+   "n": 755
+  },
+  "2001-06-30": {
+   "slope": -0.10266655961646057,
+   "t": -9.593021230578628,
+   "n": 768
+  },
+  "2002-06-30": {
+   "slope": -0.09176408519033287,
+   "t": -8.866217322854878,
+   "n": 747
+  },
+  "2003-06-30": {
+   "slope": -0.10779270450226827,
+   "t": -11.633700141733181,
+   "n": 720
+  },
+  "2004-06-30": {
+   "slope": -0.11258179968059434,
+   "t": -12.375264958096228,
+   "n": 705
+  },
+  "2005-06-30": {
+   "slope": -0.09675219578218039,
+   "t": -10.562299317598903,
+   "n": 668
+  },
+  "2006-06-30": {
+   "slope": -0.08792118882462882,
+   "t": -8.35008091382503,
+   "n": 653
+  },
+  "2007-06-30": {
+   "slope": -0.062263408735174455,
+   "t": -5.848692165644733,
+   "n": 687
+  },
+  "2008-06-30": {
+   "slope": -0.07409760286610335,
+   "t": -8.231171995753362,
+   "n": 706
+  },
+  "2009-06-30": {
+   "slope": -0.0693361760952835,
+   "t": -7.5895551098543175,
+   "n": 697
+  }
+ },
+ "p11": {
+  "B_kappa": 0.00243926565217053,
+  "B_sigma": 0.32448537284431866,
+  "B_sim_top10_median": 0.6351951655872926,
+  "B_sim_top10_p5_p95": [
+   0.4704240938876893,
+   0.8690935557910978
+  ],
+  "B_sim_zipf_alpha_median": 0.5974483931210364,
+  "sigma_rel_growth": 0.32449455393504384,
+  "annual_top500_churn": 0.096561797752809,
+  "sim_top10_share_median": 0.7396989734343173,
+  "sim_top10_p5_p95": [
+   0.534236547704326,
+   0.9329642929021869
+  ],
+  "sim_zipf_alpha_median": 0.5363804118313729,
+  "obs_top10_share_2015": 0.1800587694214401,
+  "obs_zipf_alpha_2015": 0.8880667887640834,
+  "obs_top10_share_mean_1936_2015": 0.2594814211911109
+ },
+ "p10": [
+  {
+   "k": 1,
+   "median_20y_multiple": 5.5204,
+   "p5_20y_multiple": 0.701,
+   "share_beating_capweight": 0.351,
+   "median_cagr": 0.0892
+  },
+  {
+   "k": 5,
+   "median_20y_multiple": 7.0099,
+   "p5_20y_multiple": 2.7558,
+   "share_beating_capweight": 0.4005,
+   "median_cagr": 0.1023
+  },
+  {
+   "k": 20,
+   "median_20y_multiple": 7.5502,
+   "p5_20y_multiple": 3.8338,
+   "share_beating_capweight": 0.43,
+   "median_cagr": 0.1064
+  },
+  {
+   "k": 50,
+   "median_20y_multiple": 7.7559,
+   "p5_20y_multiple": 4.3508,
+   "share_beating_capweight": 0.45,
+   "median_cagr": 0.1079
+  },
+  {
+   "k": 100,
+   "median_20y_multiple": 7.7941,
+   "p5_20y_multiple": 4.4948,
+   "share_beating_capweight": 0.443,
+   "median_cagr": 0.1081
+  },
+  {
+   "k": 500,
+   "median_20y_multiple": 7.3441,
+   "p5_20y_multiple": 4.674,
+   "share_beating_capweight": 0.425,
+   "median_cagr": 0.1048
+  }
+ ],
+ "p10_kelly": {
+  "index_kelly_fraction": 2.230897698685851,
+  "half_kelly": 1.1154488493429255,
+  "n_months": 1074,
+  "note": "a 30% tilt on a 0.1-7% weight never approaches half-Kelly on the index position; per-stock half-Kelly cap is applied in backtest as max weight <= 1.3x cap weight"
+ }
+}

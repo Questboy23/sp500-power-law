@@ -1,0 +1,670 @@
+{
+ "system": {
+  "cagr": 0.12489556965535109,
+  "months": 60,
+  "vol": 0.11645974932797613
+ },
+ "base0_cagr": 0.12475026366968356,
+ "sp500tr_cagr": 0.12568307174691107,
+ "voo_cagr": 0.12354713097002779,
+ "voo_months": 60,
+ "system_minus_voo_ann": 0.0011426066292838583,
+ "system_minus_voo_te": 0.004635394937969506,
+ "system_minus_sp500tr_ann": -0.0007641389939834116,
+ "i3_effect_ann": 0.00012771360715659746,
+ "i3_n_additions": 99,
+ "i3_mean_excess_d0_4": -0.007193861145644786,
+ "i3_t": -1.6320742071233065,
+ "angles": [
+  {
+   "angle": "P3_gibrat_up",
+   "months": 60,
+   "excess_holdout": 0.0009120293180066004,
+   "te_holdout": 0.003715187686430839,
+   "ir_holdout": 0.24548674117801628,
+   "t_holdout": 0.5489250408489412,
+   "ir_pre": -0.0383560527808054,
+   "overfit_flag": false
+  },
+  {
+   "angle": "P4_tail_momentum",
+   "months": 60,
+   "excess_holdout": 0.001552241371037441,
+   "te_holdout": 0.004891196287717301,
+   "ir_holdout": 0.31735413582468697,
+   "t_holdout": 0.7096254206447012,
+   "ir_pre": 0.0043059299942081,
+   "overfit_flag": false
+  },
+  {
+   "angle": "P7_compounder",
+   "months": 60,
+   "excess_holdout": 0.0009211024164485423,
+   "te_holdout": 0.0035703519510984767,
+   "ir_holdout": 0.2579864475728087,
+   "t_holdout": 0.5768752340464858,
+   "ir_pre": 0.0746787162645882,
+   "overfit_flag": false
+  },
+  {
+   "angle": "P9_hype_max",
+   "months": 60,
+   "excess_holdout": -0.0004486278448402099,
+   "te_holdout": 0.006830631035267633,
+   "ir_holdout": -0.06567882857731197,
+   "t_holdout": -0.14686232538142538,
+   "ir_pre": -0.1572784536121745,
+   "overfit_flag": false
+  },
+  {
+   "angle": "P9_hype_composite",
+   "months": 60,
+   "excess_holdout": 0.00013246144018226586,
+   "te_holdout": 0.005882323025079008,
+   "ir_holdout": 0.022518559354445977,
+   "t_holdout": 0.05035302947190498,
+   "ir_pre": 0.0852537970234058,
+   "overfit_flag": true
+  },
+  {
+   "angle": "A4_insider_buys",
+   "months": 60,
+   "excess_holdout": 0.001016729005246219,
+   "te_holdout": 0.002723998113884373,
+   "ir_holdout": 0.37324879193707716,
+   "t_holdout": 0.83460967129098,
+   "ir_pre": 0.4196325534967099,
+   "overfit_flag": false
+  },
+  {
+   "angle": "A5_lazy_filings",
+   "status": "no holdout coverage"
+  },
+  {
+   "angle": "A8_rd_underpriced",
+   "months": 60,
+   "excess_holdout": 7.988439234704611e-05,
+   "te_holdout": 0.00010401980462714441,
+   "ir_holdout": 0.7679729127870323,
+   "t_holdout": 1.7172396378703216,
+   "ir_pre": -0.3074508174879356,
+   "overfit_flag": false
+  },
+  {
+   "angle": "A9_fluent_ticker",
+   "months": 60,
+   "excess_holdout": 0.0003082072044751567,
+   "te_holdout": 0.0019890877575260437,
+   "ir_holdout": 0.15494902289202855,
+   "t_holdout": 0.3464765482337469,
+   "ir_pre": 0.3715215376400929,
+   "overfit_flag": true
+  },
+  {
+   "angle": "B4_named_as_rival",
+   "status": "no holdout coverage"
+  },
+  {
+   "angle": "B6_crisis_share_gainer",
+   "months": 60,
+   "excess_holdout": 0.002491771685274694,
+   "te_holdout": 0.0037811208882936654,
+   "ir_holdout": 0.6590034433940498,
+   "t_holdout": 1.4735764968355303,
+   "ir_pre": -0.295973564834642,
+   "overfit_flag": false
+  },
+  {
+   "angle": "B7_second_derivative",
+   "months": 60,
+   "excess_holdout": 3.203648201003187e-05,
+   "te_holdout": 0.0020402936066627924,
+   "ir_holdout": 0.015701897954987155,
+   "t_holdout": 0.035110511203116215,
+   "ir_pre": 0.0015915807374735,
+   "overfit_flag": false
+  },
+  {
+   "angle": "B8_scale_gets_cheaper",
+   "months": 60,
+   "excess_holdout": 0.0008867274124629287,
+   "te_holdout": 0.002271565810950117,
+   "ir_holdout": 0.39035955207128314,
+   "t_holdout": 0.8728704940977579,
+   "ir_pre": -0.1082058638453849,
+   "overfit_flag": false
+  },
+  {
+   "angle": "B11_boring_dinner",
+   "months": 60,
+   "excess_holdout": -0.002282917072145664,
+   "te_holdout": 0.004797950294374447,
+   "ir_holdout": -0.4758109050905266,
+   "t_holdout": -1.0639455282181183,
+   "ir_pre": -0.253793490640605,
+   "overfit_flag": false
+  },
+  {
+   "angle": "N1_quality_minus_junk",
+   "months": 60,
+   "excess_holdout": 0.0015435574294828977,
+   "te_holdout": 0.004848457297182021,
+   "ir_holdout": 0.31836052890061156,
+   "t_holdout": 0.7118757839745539,
+   "ir_pre": 0.1522472444598719,
+   "overfit_flag": false
+  },
+  {
+   "angle": "N2_lindy_age",
+   "months": 60,
+   "excess_holdout": -0.0031026630840132897,
+   "te_holdout": 0.004021610019614824,
+   "ir_holdout": -0.7714977506223869,
+   "t_holdout": -1.7251214148798375,
+   "ir_pre": 0.1675948106271823,
+   "overfit_flag": true
+  },
+  {
+   "angle": "N3_volume_spike",
+   "months": 60,
+   "excess_holdout": 0.00014740126129394608,
+   "te_holdout": 0.003563123901456037,
+   "ir_holdout": 0.04136854776049521,
+   "t_holdout": 0.09250288492291396,
+   "ir_pre": 0.1058464363585855,
+   "overfit_flag": true
+  },
+  {
+   "angle": "N4_low_beta_tail_safe",
+   "months": 60,
+   "excess_holdout": -0.0010405830076354013,
+   "te_holdout": 0.008189299042605456,
+   "ir_holdout": -0.12706618749928272,
+   "t_holdout": -0.2841286328901302,
+   "ir_pre": 0.3099755782526361,
+   "overfit_flag": true
+  },
+  {
+   "angle": "P6_tail_classifier",
+   "months": 60,
+   "excess_holdout": -8.011179604615822e-05,
+   "te_holdout": 0.0028922354419436904,
+   "ir_holdout": -0.027698919280347418,
+   "t_holdout": -0.061936666414136386,
+   "ir_pre": -0.3080898689702297,
+   "overfit_flag": false
+  },
+  {
+   "angle": "P8_survival",
+   "months": 60,
+   "excess_holdout": 0.0015674686682619582,
+   "te_holdout": 0.0027118941553377646,
+   "ir_holdout": 0.5779977309131856,
+   "t_holdout": 1.2924422171625147,
+   "ir_pre": 0.5803961524890754,
+   "overfit_flag": false
+  },
+  {
+   "angle": "P2_zipf_switch",
+   "months": 60,
+   "excess_holdout": -0.00025961926707631256,
+   "te_holdout": 0.005523146510494052,
+   "ir_holdout": -0.047005681740115435,
+   "t_holdout": -0.10510789969961871,
+   "ir_pre": 0.496160362550495,
+   "overfit_flag": true
+  },
+  {
+   "angle": "LIVE_SHADOW",
+   "months": 60,
+   "excess_holdout": 0.0004582145214329111,
+   "te_holdout": 0.001635331384532363,
+   "ir_holdout": 0.2801967391850316,
+   "t_holdout": 0.6265389558915095,
+   "ir_pre": null,
+   "overfit_flag": false
+  },
+  {
+   "angle": "COMBINED_all (exploratory)",
+   "months": 60,
+   "excess_holdout": 0.000351652056813397,
+   "te_holdout": 0.0020026456380623507,
+   "ir_holdout": 0.1755937496529022,
+   "t_holdout": 0.39263956064796934,
+   "ir_pre": null,
+   "overfit_flag": false
+  }
+ ],
+ "shadow_minus_voo_ann": 0.001600821150716769,
+ "monthly": [
+  {
+   "date": "2010-12-31",
+   "SYSTEM": 100000.0,
+   "SHADOW": 100000.0,
+   "VOO": 100000.0,
+   "SP500TR": 100000.0
+  },
+  {
+   "date": "2011-01-31",
+   "SYSTEM": 102316.15,
+   "SHADOW": 102273.61,
+   "VOO": 102223.37,
+   "SP500TR": 102370.06
+  },
+  {
+   "date": "2011-02-28",
+   "SYSTEM": 105646.16,
+   "SHADOW": 105599.1,
+   "VOO": 105766.88,
+   "SP500TR": 105877.15
+  },
+  {
+   "date": "2011-03-31",
+   "SYSTEM": 105673.35,
+   "SHADOW": 105668.67,
+   "VOO": 105769.43,
+   "SP500TR": 105919.24
+  },
+  {
+   "date": "2011-04-30",
+   "SYSTEM": 108757.76,
+   "SHADOW": 108735.06,
+   "VOO": 108875.15,
+   "SP500TR": 109055.99
+  },
+  {
+   "date": "2011-05-31",
+   "SYSTEM": 107512.21,
+   "SHADOW": 107532.06,
+   "VOO": 107601.41,
+   "SP500TR": 107821.53
+  },
+  {
+   "date": "2011-06-30",
+   "SYSTEM": 105734.35,
+   "SHADOW": 105761.18,
+   "VOO": 105792.5,
+   "SP500TR": 106024.24
+  },
+  {
+   "date": "2011-07-31",
+   "SYSTEM": 103631.49,
+   "SHADOW": 103659.92,
+   "VOO": 103618.42,
+   "SP500TR": 103868.44
+  },
+  {
+   "date": "2011-08-31",
+   "SYSTEM": 98010.06,
+   "SHADOW": 98142.91,
+   "VOO": 97902.79,
+   "SP500TR": 98225.88
+  },
+  {
+   "date": "2011-09-30",
+   "SYSTEM": 91180.71,
+   "SHADOW": 91390.84,
+   "VOO": 91259.42,
+   "SP500TR": 91320.96
+  },
+  {
+   "date": "2011-10-31",
+   "SYSTEM": 101098.08,
+   "SHADOW": 101238.53,
+   "VOO": 101062.43,
+   "SP500TR": 101301.62
+  },
+  {
+   "date": "2011-11-30",
+   "SYSTEM": 100846.92,
+   "SHADOW": 101027.57,
+   "VOO": 100762.69,
+   "SP500TR": 101077.91
+  },
+  {
+   "date": "2011-12-31",
+   "SYSTEM": 101811.23,
+   "SHADOW": 102040.36,
+   "VOO": 101897.5,
+   "SP500TR": 102111.82
+  },
+  {
+   "date": "2012-01-31",
+   "SYSTEM": 106418.68,
+   "SHADOW": 106550.0,
+   "VOO": 106455.81,
+   "SP500TR": 106687.82
+  },
+  {
+   "date": "2012-02-29",
+   "SYSTEM": 111037.27,
+   "SHADOW": 111135.68,
+   "VOO": 111014.16,
+   "SP500TR": 111301.19
+  },
+  {
+   "date": "2012-03-31",
+   "SYSTEM": 114691.23,
+   "SHADOW": 114782.92,
+   "VOO": 114680.54,
+   "SP500TR": 114963.88
+  },
+  {
+   "date": "2012-04-30",
+   "SYSTEM": 113973.15,
+   "SHADOW": 114110.0,
+   "VOO": 113950.1,
+   "SP500TR": 114242.6
+  },
+  {
+   "date": "2012-05-31",
+   "SYSTEM": 107178.55,
+   "SHADOW": 107451.75,
+   "VOO": 107108.81,
+   "SP500TR": 107376.47
+  },
+  {
+   "date": "2012-06-30",
+   "SYSTEM": 111630.32,
+   "SHADOW": 111915.32,
+   "VOO": 111538.67,
+   "SP500TR": 111800.65
+  },
+  {
+   "date": "2012-07-31",
+   "SYSTEM": 113192.49,
+   "SHADOW": 113520.0,
+   "VOO": 112881.81,
+   "SP500TR": 113353.42
+  },
+  {
+   "date": "2012-08-31",
+   "SYSTEM": 115773.7,
+   "SHADOW": 116073.89,
+   "VOO": 115711.46,
+   "SP500TR": 115906.52
+  },
+  {
+   "date": "2012-09-30",
+   "SYSTEM": 118677.93,
+   "SHADOW": 118962.94,
+   "VOO": 118664.07,
+   "SP500TR": 118901.85
+  },
+  {
+   "date": "2012-10-31",
+   "SYSTEM": 116515.98,
+   "SHADOW": 116738.66,
+   "VOO": 116341.92,
+   "SP500TR": 116706.32
+  },
+  {
+   "date": "2012-11-30",
+   "SYSTEM": 117131.31,
+   "SHADOW": 117375.05,
+   "VOO": 117007.97,
+   "SP500TR": 117383.14
+  },
+  {
+   "date": "2012-12-31",
+   "SYSTEM": 118131.54,
+   "SHADOW": 118285.89,
+   "VOO": 118193.72,
+   "SP500TR": 118453.0
+  },
+  {
+   "date": "2013-01-31",
+   "SYSTEM": 124358.53,
+   "SHADOW": 124405.37,
+   "VOO": 124303.7,
+   "SP500TR": 124588.39
+  },
+  {
+   "date": "2013-02-28",
+   "SYSTEM": 125974.32,
+   "SHADOW": 126043.09,
+   "VOO": 125953.62,
+   "SP500TR": 126279.74
+  },
+  {
+   "date": "2013-03-31",
+   "SYSTEM": 130708.8,
+   "SHADOW": 130814.2,
+   "VOO": 130503.6,
+   "SP500TR": 131015.61
+  },
+  {
+   "date": "2013-04-30",
+   "SYSTEM": 133252.2,
+   "SHADOW": 133391.88,
+   "VOO": 133236.07,
+   "SP500TR": 133539.86
+  },
+  {
+   "date": "2013-05-31",
+   "SYSTEM": 136309.32,
+   "SHADOW": 136321.3,
+   "VOO": 136332.97,
+   "SP500TR": 136663.37
+  },
+  {
+   "date": "2013-06-30",
+   "SYSTEM": 134456.38,
+   "SHADOW": 134457.13,
+   "VOO": 134277.34,
+   "SP500TR": 134828.23
+  },
+  {
+   "date": "2013-07-31",
+   "SYSTEM": 141269.52,
+   "SHADOW": 141310.19,
+   "VOO": 141399.52,
+   "SP500TR": 141689.17
+  },
+  {
+   "date": "2013-08-31",
+   "SYSTEM": 137136.44,
+   "SHADOW": 137266.58,
+   "VOO": 137042.01,
+   "SP500TR": 137585.66
+  },
+  {
+   "date": "2013-09-30",
+   "SYSTEM": 141427.0,
+   "SHADOW": 141554.92,
+   "VOO": 141687.28,
+   "SP500TR": 141900.11
+  },
+  {
+   "date": "2013-10-31",
+   "SYSTEM": 147967.71,
+   "SHADOW": 148118.42,
+   "VOO": 148017.24,
+   "SP500TR": 148422.88
+  },
+  {
+   "date": "2013-11-30",
+   "SYSTEM": 152505.87,
+   "SHADOW": 152683.01,
+   "VOO": 152451.85,
+   "SP500TR": 152945.9
+  },
+  {
+   "date": "2013-12-31",
+   "SYSTEM": 156387.53,
+   "SHADOW": 156583.61,
+   "VOO": 156472.54,
+   "SP500TR": 156818.13
+  },
+  {
+   "date": "2014-01-31",
+   "SYSTEM": 150964.54,
+   "SHADOW": 151115.11,
+   "VOO": 150949.91,
+   "SP500TR": 151395.97
+  },
+  {
+   "date": "2014-02-28",
+   "SYSTEM": 157827.72,
+   "SHADOW": 158058.53,
+   "VOO": 157841.59,
+   "SP500TR": 158321.7
+  },
+  {
+   "date": "2014-03-31",
+   "SYSTEM": 159146.3,
+   "SHADOW": 159317.74,
+   "VOO": 159231.23,
+   "SP500TR": 159652.17
+  },
+  {
+   "date": "2014-04-30",
+   "SYSTEM": 160297.96,
+   "SHADOW": 160470.23,
+   "VOO": 160383.52,
+   "SP500TR": 160832.24
+  },
+  {
+   "date": "2014-05-31",
+   "SYSTEM": 164004.57,
+   "SHADOW": 164256.85,
+   "VOO": 164063.49,
+   "SP500TR": 164607.98
+  },
+  {
+   "date": "2014-06-30",
+   "SYSTEM": 167376.86,
+   "SHADOW": 167634.17,
+   "VOO": 167490.61,
+   "SP500TR": 168008.17
+  },
+  {
+   "date": "2014-07-31",
+   "SYSTEM": 165079.45,
+   "SHADOW": 165309.53,
+   "VOO": 165184.97,
+   "SP500TR": 165691.08
+  },
+  {
+   "date": "2014-08-31",
+   "SYSTEM": 171638.17,
+   "SHADOW": 171924.18,
+   "VOO": 171747.28,
+   "SP500TR": 172319.31
+  },
+  {
+   "date": "2014-09-30",
+   "SYSTEM": 169203.64,
+   "SHADOW": 169458.5,
+   "VOO": 169376.15,
+   "SP500TR": 169903.37
+  },
+  {
+   "date": "2014-10-31",
+   "SYSTEM": 173281.39,
+   "SHADOW": 173585.88,
+   "VOO": 173446.59,
+   "SP500TR": 174053.22
+  },
+  {
+   "date": "2014-11-30",
+   "SYSTEM": 178023.41,
+   "SHADOW": 178316.07,
+   "VOO": 178229.96,
+   "SP500TR": 178734.23
+  },
+  {
+   "date": "2014-12-31",
+   "SYSTEM": 177598.38,
+   "SHADOW": 177874.26,
+   "VOO": 176701.07,
+   "SP500TR": 178283.96
+  },
+  {
+   "date": "2015-01-31",
+   "SYSTEM": 172357.0,
+   "SHADOW": 172729.35,
+   "VOO": 171627.12,
+   "SP500TR": 172931.81
+  },
+  {
+   "date": "2015-02-28",
+   "SYSTEM": 182160.74,
+   "SHADOW": 182607.99,
+   "VOO": 181203.03,
+   "SP500TR": 182870.84
+  },
+  {
+   "date": "2015-03-31",
+   "SYSTEM": 179366.86,
+   "SHADOW": 179840.23,
+   "VOO": 178356.81,
+   "SP500TR": 179978.62
+  },
+  {
+   "date": "2015-04-30",
+   "SYSTEM": 181118.62,
+   "SHADOW": 181508.19,
+   "VOO": 180147.97,
+   "SP500TR": 181705.44
+  },
+  {
+   "date": "2015-05-31",
+   "SYSTEM": 183383.6,
+   "SHADOW": 183838.72,
+   "VOO": 182400.95,
+   "SP500TR": 184041.92
+  },
+  {
+   "date": "2015-06-30",
+   "SYSTEM": 179842.14,
+   "SHADOW": 180341.28,
+   "VOO": 178849.67,
+   "SP500TR": 180479.03
+  },
+  {
+   "date": "2015-07-31",
+   "SYSTEM": 183597.05,
+   "SHADOW": 184097.97,
+   "VOO": 182742.17,
+   "SP500TR": 184260.44
+  },
+  {
+   "date": "2015-08-31",
+   "SYSTEM": 172541.43,
+   "SHADOW": 173049.49,
+   "VOO": 171528.65,
+   "SP500TR": 173143.23
+  },
+  {
+   "date": "2015-09-30",
+   "SYSTEM": 168289.94,
+   "SHADOW": 168763.32,
+   "VOO": 167299.42,
+   "SP500TR": 168859.04
+  },
+  {
+   "date": "2015-10-31",
+   "SYSTEM": 182358.13,
+   "SHADOW": 182974.17,
+   "VOO": 181438.51,
+   "SP500TR": 183103.08
+  },
+  {
+   "date": "2015-11-30",
+   "SYSTEM": 182914.29,
+   "SHADOW": 183525.16,
+   "VOO": 182209.83,
+   "SP500TR": 183647.47
+  },
+  {
+   "date": "2015-12-31",
+   "SYSTEM": 180119.62,
+   "SHADOW": 180594.27,
+   "VOO": 179042.64,
+   "SP500TR": 180750.99
+  }
+ ],
+ "n_trials_total": 55,
+ "note": "SYSTEM is the S&P 500 reconstructed from CRSP (through 2024) and Yahoo (2025+) at total-share cap weights, plus rule I3. It is not float-adjusted, so a gap vs VOO of a few tenths of a percent a year is reconstruction noise, not skill. The comparison that isolates the research decision is SYSTEM vs BASE0 (the I3 effect)."
+}

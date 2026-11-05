@@ -1,0 +1,20 @@
+{
+ "asof": "2026-09-30",
+ "zipf_deviation": NaN,
+ "zipf_trailing10y_median": -0.2832134406446815,
+ "p2_switch_on": false,
+ "te_ex_ante_before_scale": 0.0035990587489084292,
+ "te_scale": 1.0,
+ "coverage": {
+  "P4_tail_momentum": 492,
+  "P9_hype_max": 503,
+  "N3_volume_spike": 503,
+  "A9_fluent_ticker": 503,
+  "A4_insider_buys": 497,
+  "A5_lazy_filings": 466,
+  "B4_named_as_rival": 404,
+  "P2_zipf_switch": 503
+ },
+ "k_min": 0.8420207560795514,
+ "k_max": 1.1719504361216089
+}

@@ -1,0 +1,134 @@
+{
+ "passing": [],
+ "gated_combined": "BASE0 (no passing angles)",
+ "exploratory_all": {
+  "net_excess_ann": 0.00024377342690828135,
+  "te": 0.003160517388347385,
+  "ir": 0.07713086085432011,
+  "t": 0.3406006592396814,
+  "months": 234
+ },
+ "groups": {
+  "power-law": {
+   "angles": [
+    "P3_gibrat_up",
+    "P4_tail_momentum",
+    "P7_compounder",
+    "P9_hype_max",
+    "P9_hype_composite",
+    "P6_tail_classifier",
+    "P8_survival"
+   ],
+   "net_excess_ann": -1.8086870812900222e-05,
+   "te": 0.004335922066055193,
+   "ir": -0.00417140126998537,
+   "t": -0.018420409247003534,
+   "months": 234
+  },
+  "published": {
+   "angles": [
+    "A4_insider_buys",
+    "A5_lazy_filings",
+    "A8_rd_underpriced",
+    "A9_fluent_ticker"
+   ],
+   "net_excess_ann": 0.00013906975526421935,
+   "te": 0.0024307521345321085,
+   "ir": 0.05721264348122795,
+   "t": 0.25264419287833795,
+   "months": 234
+  },
+  "vibe": {
+   "angles": [
+    "B4_named_as_rival",
+    "B6_crisis_share_gainer",
+    "B7_second_derivative",
+    "B8_scale_gets_cheaper",
+    "B11_boring_dinner"
+   ],
+   "net_excess_ann": -0.0007649888333223964,
+   "te": 0.003389950107504958,
+   "ir": -0.22566374402643846,
+   "t": -0.9166504615023624,
+   "months": 198
+  },
+  "added": {
+   "angles": [
+    "N1_quality_minus_junk",
+    "N2_lindy_age",
+    "N3_volume_spike",
+    "N4_low_beta_tail_safe"
+   ],
+   "net_excess_ann": 0.0015124780701987225,
+   "te": 0.005720333591188559,
+   "ir": 0.26440382297432813,
+   "t": 1.1675756683260734,
+   "months": 234
+  }
+ },
+ "implementation": {
+  "I5_costs": {
+   "gross_excess_ann": 0.00028500618528929766,
+   "net_excess_ann": 0.00023867356442066023,
+   "cost_drag_ann": 4.633262086863751e-05
+  },
+  "I1_bounded_vs_unbounded": {
+   "bounded": {
+    "net_excess_ann": 0.00024377342690828135,
+    "te": 0.003160517388347385,
+    "ir": 0.07713086085432011,
+    "t": 0.3406006592396814,
+    "months": 234
+   },
+   "unbounded": {
+    "net_excess_ann": 0.0007919838381116391,
+    "te": 0.009756520701244574,
+    "ir": 0.08117482270197111,
+    "t": 0.35845831123518485,
+    "months": 234
+   }
+  },
+  "I2_shrinkage": {
+   "full_confidence": {
+    "net_excess_ann": 0.00024377342690828135,
+    "te": 0.003160517388347385,
+    "ir": 0.07713086085432011,
+    "t": 0.3406006592396814,
+    "months": 234
+   },
+   "shrunk": {
+    "net_excess_ann": 4.333165547891331e-05,
+    "te": 0.001014046347545385,
+    "ir": 0.04273143489328918,
+    "t": 0.1886969072262938,
+    "months": 234
+   },
+   "avg_confidence": 0.27180265573619816
+  },
+  "I3_rebalance_day": {
+   "excess_days_-20_to_-1": {
+    "mean": 0.07433366059225512,
+    "t": 13.32585502325719,
+    "n": 439
+   },
+   "excess_days_0_to_4": {
+    "mean": -0.01368790909090909,
+    "t": -4.969760460937385,
+    "n": 484
+   },
+   "excess_days_0_to_19": {
+    "mean": -0.019821386363636367,
+    "t": -4.077976489531331,
+    "n": 484
+   },
+   "note": "effective dates from the membership file (first day listed); announcement dates unknown"
+  },
+  "I6_tax": {
+   "harvest_value_pct_per_year": 0.00582008454655323,
+   "months": 239,
+   "threshold": 0.1,
+   "note": "after-tax only; upper bound (assumes unlimited outside gains to offset, no wash-sale friction). Deferred gains taxed at 15% would claw back roughly 15/32 of the ST share and all LT benefit in PV terms."
+  },
+  "I7_half_kelly": "non-binding: max tilted weight is 1.3x cap weight; index Kelly fraction 2.53 (P10)"
+ }
+}

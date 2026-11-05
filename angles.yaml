@@ -1,0 +1,297 @@
+# Pre-registered angles (Rule 5). Written 2026-09-30 BEFORE any angle backtest was run.
+# Changing a definition after seeing results = a new angle id and a new trial.
+# signal convention: higher signal => predicted HIGHER forward return (direction already applied),
+# so "direction: -" angles are implemented as the negated raw quantity.
+# testable_from = first June formation with the data; data_grade: A (CRSP returns), B (FIAM/JKP
+# characteristics, point-in-time lagged), C (EDGAR XBRL 2009+ / text), X = not testable on free data.
+
+defaults: {horizon: 12m hold, rebalance: annual June formation, tilt_max: 0.30, te_cap: 0.02}
+
+angles:
+  # ---------------- Power-law module (P) ----------------
+  - {id: P2_zipf_switch, group: P, vibe: "Too concentrated vs Zipf -> equal weight wins",
+     definition: "top-10 cap share minus Zipf-implied top-10 share (alpha fit to top 500 caps). If deviation > its trailing-10y median, tilt toward equal weight (bounded: final weight = cap + 0.30*(ew-cap) clipped to +/-30% of cap); else pure cap.",
+     data: CRSP caps, direction: "+ EW when over-concentrated", horizon: 5y, testable_from: 1936 (top-500 proxy), 1996 (actual S&P),
+     prior_evidence: none direct, mechanism: "crowding into mega-caps beyond what proportional growth produces mean-reverts", data_grade: A}
+  - {id: P3_gibrat_up, group: P, vibe: "Rich get richer",
+     definition: "firm in an industry (FF-style SIC2) whose cross-sectional slope of 3y sales growth on log size is positive over the trailing 5 formations; signal = industry slope",
+     data: FIAM sale_gr3 + CRSP cap, direction: +, horizon: 12m, testable_from: 2005, prior_evidence: none, mechanism: network effects / preferential attachment, data_grade: B}
+  - {id: P4_tail_momentum, group: P, vibe: "Winners keep winning",
+     definition: "trailing 5y total return decile within S&P members (top decile = +1 ... bottom = -1)",
+     data: CRSP, direction: +, horizon: 12m, testable_from: 2001, prior_evidence: "long-run reversal (De Bondt-Thaler) predicts the OPPOSITE", mechanism: preferential attachment, data_grade: A}
+  - {id: P5_early_entrants, group: P, vibe: "Buy them before the index does",
+     definition: "hold non-members in top 500 by CRSP cap that are not in S&P, at up to 30% of their own cap weight, funded pro-rata from members",
+     data: CRSP market + membership, direction: +, horizon: 12m, testable_from: 1997, prior_evidence: "index inclusion effect (Shleifer 1986; fading after 2000)", mechanism: late index entry buys after the run, data_grade: A}
+  - {id: P5_no_trim, group: P, vibe: "Never trim winners",
+     definition: "compare pure cap weight vs a 5% single-name cap (redistributed pro-rata); the angle = the cap-weight side, signal = -(capped deviation)",
+     data: CRSP, direction: "no trim beats trim", horizon: 12m, testable_from: 1996, prior_evidence: none, mechanism: power-law winners keep compounding, data_grade: A}
+  - {id: P6_tail_classifier, group: P, vibe: "Predict the next giant",
+     definition: "L2 logistic regression P(tail) on FIAM fundamentals + P7 + P8 inputs (+ text embeddings if available), trained walk-forward on formations whose 5y label ended before the test year; tilt = rank(P(tail)) - rank(P9 hype)",
+     data: FIAM + labels (+ text), direction: +, horizon: 12m, testable_from: 2006, prior_evidence: none, mechanism: fundamentals of compounding firms are underpriced, data_grade: B}
+  - {id: P7_compounder, group: P, vibe: "High return on reinvested capital",
+     definition: "rank(ROIIC proxy: change in operating profit / change in assets over 3y, from FIAM op_at & at_gr) x rank(reinvestment: capx_gr3 & rd_sale); runway proxy omitted without a point-in-time LLM",
+     data: FIAM, direction: +, horizon: 12m, testable_from: 2003, prior_evidence: "profitability (RMW) +, investment (CMA) -", mechanism: compounding engines, data_grade: B}
+  - {id: P8_survival, group: P, vibe: "Avoid the Dutch East India Company",
+     definition: "discrete-time logit hazard of distress exit within 5y on leverage (debt_me), o_score, z_score, age, 1y vol; underweight top hazard decile (signal = -hazard, zero outside top decile)",
+     data: FIAM + CRSP, direction: "- hazard", horizon: 12m, testable_from: 2006, prior_evidence: "distress anomaly (Campbell, Hilscher, Szilagyi 2008) [high]", mechanism: investors overpay for lottery-like distressed stocks, data_grade: B}
+  - {id: P9_hype_max, group: P, vibe: "Lottery stocks disappoint",
+     definition: "MAX effect: max daily return in the formation month (CRSP daily); signal = -MAX rank",
+     data: CRSP daily, direction: -, horizon: 12m, testable_from: 1996, prior_evidence: "Bali, Cakici, Whitelaw 2011 [high]", mechanism: preference for skewness, data_grade: A}
+  - {id: P9_hype_composite, group: P, vibe: "Hype = MAX + turnover + expensive vs sector",
+     definition: "mean rank of MAX, turnover_126d, and -(be_me rank within SIC2); signal = -composite",
+     data: FIAM + CRSP, direction: -, horizon: 12m, testable_from: 2000, prior_evidence: partial, mechanism: attention-driven overpricing, data_grade: B}
+
+  # ---------------- Published (A) ----------------
+  - {id: A1_superstar_ceo, group: A, testable_from: never, data_grade: X, reason: "no free point-in-time CEO award list"}
+  - {id: A2_mansion, group: A, testable_from: never, data_grade: X, reason: "no free CEO home-purchase data"}
+  - {id: A3_attention_spike, group: A, testable_from: never, data_grade: X, reason: "Google Trends cannot be pulled for ~1000 tickers x 20y anonymously (rate limit); proxy registered as N3_volume_spike"}
+  - {id: A4_insider_buys, group: A, vibe: "Eat your own cooking",
+     definition: "count of non-routine open-market insider purchases (Form 4 code P) in the 12m before formation, scaled by #insiders filing; routine = same insider bought in the same calendar month in each of the prior 3 years (Cohen-Malloy-Pomorski)",
+     data: SEC Insider Transactions Data Sets (2006+ quarterly, free), direction: +, horizon: 12m, testable_from: 2007, prior_evidence: "Cohen, Malloy, Pomorski 2012 [high]", mechanism: insiders trade on private information, data_grade: C}
+  - {id: A5_lazy_filings, group: A, vibe: "No news is good news",
+     definition: "cosine similarity (TF-IDF) of this year's 10-K vs last year's, most recent 10-K filed before formation",
+     data: EDGAR 10-K text, direction: +, horizon: 12m, testable_from: 1998, prior_evidence: "Cohen, Malloy, Nguyen 2020 [high]", mechanism: investors ignore subtle disclosure changes, data_grade: C}
+  - {id: A6_customer_momentum, group: A, testable_from: never, data_grade: X, reason: "needs Compustat customer segments"}
+  - {id: A7_happy_employees, group: A, testable_from: never, data_grade: X, reason: "no machine-readable point-in-time Fortune 100 Best list"}
+  - {id: A8_rd_underpriced, group: A, vibe: "Invest in inventors",
+     definition: "rd_sale (FIAM) year-over-year increase > 5% of sales AND rd_sale > 0; signal = +1 else 0",
+     data: FIAM, direction: +, horizon: 12m, testable_from: 2001, prior_evidence: "Eberhart, Maxwell, Siddique 2004 [medium]", mechanism: markets under-react to intangible investment, data_grade: B}
+  - {id: A9_fluent_ticker, group: A, vibe: "Easy name, easy money",
+     definition: "ticker pronounceability: 1 if the ticker is a pronounceable letter string (contains a vowel and matches CV/CVC/CVCC patterns or is an English word), else 0",
+     data: membership tickers, direction: +, horizon: 12m, testable_from: 1996, prior_evidence: "Alter & Oppenheimer 2006, mostly IPOs [medium]", mechanism: processing fluency, data_grade: A}
+  - {id: A10_founder_ceo, group: A, testable_from: never, data_grade: X, reason: "no free point-in-time founder/CEO data; a modern LLM label would be look-ahead"}
+
+  # ---------------- Vibe heuristics (B) ----------------
+  - {id: B1_pickaxes, group: B, testable_from: never, data_grade: X, reason: "needs input-output supplier links per firm; industry-level proxy not built"}
+  - {id: B2_arms_dealer, group: B, testable_from: never, data_grade: X, reason: "needs customer links"}
+  - {id: B3_platform_gravity, group: B, testable_from: never, data_grade: X, reason: "GitHub/job-post history not free point-in-time"}
+  - {id: B4_named_as_rival, group: B, vibe: "Everyone's worried about them",
+     definition: "3y change in the number of OTHER firms' 10-Ks (filed before formation) that mention this firm's name in a competition context",
+     data: EDGAR 10-K text, direction: +, horizon: 12m, testable_from: 2001, prior_evidence: none, mechanism: becoming the hub, data_grade: C}
+  - {id: B5_hated_but_kept, group: B, testable_from: never, data_grade: X, reason: "no complaint-volume history outside CFPB financials"}
+  - {id: B6_crisis_share_gainer, group: B, vibe: "Winners are made in recessions",
+     definition: "gained SIC2 industry sales share over the most recent crisis year (2001, 2008-09, 2020) available before formation, measured from FIAM sale_gr1 vs industry median; signal persists until next crisis",
+     data: FIAM, direction: +, horizon: 12m, testable_from: 2002, prior_evidence: none, mechanism: strong firms buy cheap in downturns, data_grade: B}
+  - {id: B7_second_derivative, group: B, vibe: "Acceleration, not speed",
+     definition: "sale_gr1 higher than its value 12m and 24m earlier (accelerating 3 years running) = +1 else 0",
+     data: FIAM, direction: +, horizon: 12m, testable_from: 2003, prior_evidence: none, mechanism: anchoring on current growth, data_grade: B}
+  - {id: B8_scale_gets_cheaper, group: B, vibe: "Gets cheaper as it grows",
+     definition: "over trailing 5 formations: slope of gross margin (gp_at/at_turnover) on log sales > 0 AND sales grew",
+     data: FIAM, direction: +, horizon: 12m, testable_from: 2005, prior_evidence: none, mechanism: scale economies, data_grade: B}
+  - {id: B9_default_choice, group: B, testable_from: never, data_grade: X, reason: "needs a generative point-in-time LLM judgment; ChronoBERT is an encoder and cannot answer it"}
+  - {id: B10_edifice_complex, group: B, testable_from: never, data_grade: X, reason: "no HQ/naming-rights event data"}
+  - {id: B11_boring_dinner, group: B, vibe: "Nobody talks about it",
+     definition: "PROXY (media coverage unavailable): low share turnover (turnover_126d) relative to SIC2 peers; signal = -turnover rank",
+     data: FIAM, direction: +, horizon: 12m, testable_from: 2000, prior_evidence: "low-turnover premium (Datar, Naik, Radcliffe 1998) [medium]", mechanism: attention flows to stories, data_grade: B}
+  - {id: B12_mocked_early, group: B, testable_from: never, data_grade: X, reason: "no point-in-time press archive"}
+  - {id: B13_organic_demand, group: B, testable_from: never, data_grade: X, reason: "Google Trends + ad spend history not available at scale"}
+  - {id: B14_talent_magnet, group: B, testable_from: never, data_grade: X, reason: "paid data (LinkedIn/Revelio)"}
+
+  # ---------------- Claude-proposed additions (N), max 10 ----------------
+  - {id: N1_quality_minus_junk, group: N, vibe: "Boring quality compounds",
+     definition: "FIAM qmj score rank", data: FIAM, direction: +, horizon: 12m, testable_from: 2000,
+     prior_evidence: "Asness, Frazzini, Pedersen 2019 [high]", mechanism: investors underprice safe profitable growth, data_grade: B}
+  - {id: N2_lindy_age, group: N, vibe: "Old firms outlast", definition: "firm age (FIAM age) rank",
+     data: FIAM, direction: +, horizon: 12m, testable_from: 2000, prior_evidence: weak, mechanism: Lindy / survival, data_grade: B}
+  - {id: N3_volume_spike, group: N, vibe: "Everyone's trading it (A3 proxy)",
+     definition: "formation-month dollar volume / trailing 12m average, from CRSP monthly vol x prc; signal = -rank",
+     data: CRSP monthly, direction: -, horizon: 12m, testable_from: 1996, prior_evidence: "mixed: high-volume premium (Gervais et al 2001) predicts +", mechanism: attention-driven overpricing, data_grade: A}
+  - {id: N4_low_beta_tail_safe, group: N, vibe: "Skip the fragile", definition: "-(betadown_252d) rank",
+     data: FIAM, direction: +, horizon: 12m, testable_from: 2000, prior_evidence: "betting against beta [high], but overlaps BASE4", mechanism: leverage-constrained investors bid up high beta, data_grade: B}
+
+implementation:   # Section 8, applied to every portfolio, reported separately
+  - {id: I1_bounded_tilts, definition: "tilt <= 30% of cap weight, confidence-scaled, TE <= 2% ex-ante (trailing 36m simulated)"}
+  - {id: I2_shrinkage, definition: "signal weight shrunk toward cap weight in proportion to walk-forward IC t-stat (Black-Litterman style)"}
+  - {id: I3_rebalance_avoid, definition: "trade index additions 5 trading days after the effective date (and test 20 days before)"}
+  - {id: I4_early_entrants, definition: "= P5_early_entrants if it passes"}
+  - {id: I5_costs, definition: "10 bps per unit turnover + 5 bps for the smallest 100 members"}
+  - {id: I6_tax, definition: "direct-indexing TLH simulation, 15% LT / 32% ST, reported after-tax separately"}
+  - {id: I7_half_kelly, definition: "no position above half-Kelly implied by P10"}
+
+# Registered 2026-09-30 after Phase 7-9 (no angle passed), BEFORE the holdout was opened.
+live_shadow:
+  id: LIVE_SHADOW
+  definition: "equal-weight average of the unit signals of every angle computable from live data (Yahoo prices/volume, SPY weights, SEC Form 4, 10-K text): P4_tail_momentum, P9_hype_max, N3_volume_spike, A9_fluent_ticker, A4_insider_buys, A5_lazy_filings, B4_named_as_rival, P2_zipf_switch (per-stock EW tilt when on). Bounded k = 1 + 0.30*s, TE <= 2%."
+  status: "FAILED-GATE SHADOW. Not used by SYSTEM. Run live to check the gate in the open."
+
+# ROUND 2 (registered 2026-10-05, BEFORE running). User asked for ways to improve the S&P 500.
+# Design sample 1927-2015 (French 12-industry VW portfolios, total US market). 2016-2026 is NOT a
+# holdout (spent 2026-09-30) and is KNOWN to have favored tech/megacap: reported, never used to choose.
+# Industry tilts: weight_i = cap_weight_i * k_i (renormalized). "Bounded" k = 1.3 / 0.7 as in round 1.
+round2:
+  - {id: R1_tech_overweight, def: "BusEq (tech) k=1.3", why: "user's guess: tech compounds faster (innovation, scale, network effects)"}
+  - {id: R1b_tech_double, def: "BusEq k=2.0", why: "bigger version of the user's bet"}
+  - {id: R2_health_overweight, def: "Hlth k=1.3", why: "aging demographics, inelastic demand"}
+  - {id: R3_defensive, def: "NoDur, Utils, Hlth k=1.3", why: "low-beta/defensive sectors historically earn similar returns with less risk"}
+  - {id: R5_sector_momentum, def: "top-3 industries by trailing 12-1 return k=1.3, bottom-3 k=0.7, monthly", why: "Moskowitz-Grinblatt 1999 industry momentum"}
+  - {id: R6_sector_reversal, def: "bottom-3 by trailing 60m return k=1.3, top-3 k=0.7, monthly", why: "long-run reversal (De Bondt-Thaler) at industry level"}
+  - {id: R7_sector_value, def: "top-3 by BE/ME (French, set each June) k=1.3, bottom-3 k=0.7", why: "value premium at industry level"}
+  - {id: R8_equal_sector, def: "each of 12 industries 1/12, monthly", why: "diversify away sector concentration"}
+  - {id: R9_trend_10m, def: "hold market if last month-end index >= 10-month SMA, else T-bills (Faber 2007)", why: "avoid big drawdowns"}
+  - {id: R10_vol_target, def: "equity weight = min(1, 15% / trailing-6m annualized vol), rest T-bills", why: "Moreira-Muir 2017 volatility-managed portfolios"}
+  - {id: R11_sell_in_may, def: "market Nov-Apr, T-bills May-Oct", why: "Halloween effect (Bouman-Jacobsen 2002)"}
+  - {id: R12_cape_timing, def: "80% equity when CAPE > trailing 20y median CAPE, else 100% (Shiller data, prior month)", why: "high valuations predict lower 10y returns"}
+  - {id: R14_half_equal_weight, def: "50% cap-weight + 50% equal-weight of top 500 by cap, monthly", why: "small/mid tilt: equal weight beat cap weight 1996-2015 (+2.3%/yr)"}
+  - {id: ROUND2_GATE, gate: "excess (or CAPM alpha for timing) t >= 3 on 1927-2015, deflated Sharpe >= 0.95 at full trial count, same sign in all 3 sub-eras (1927-69, 1970-95, 1996-2015)"}
+
+# ROUND 3 (registered 2026-10-05 before running): structural edges, the kind a market maker trusts:
+# someone is forced to trade, someone pays for insurance, or flows arrive on a schedule.
+# Each is judged on its DESIGN sample and, where it comes from a paper, separately on the period AFTER
+# that paper's sample ended (the cleanest out-of-sample test left, since the 2016+ holdout is spent).
+# Overlays use futures-style exposure: extra exposure financed at T-bill + 1 bp per trade.
+round3:
+  - {id: T1_pre_fomc, def: "S&P + 0.5x extra exposure on the trading day before and the day of each SCHEDULED FOMC announcement", why: "Lucca-Moench 2015 pre-FOMC drift: dealers demand compensation for event risk", paper_sample_end: 2011-12-31}
+  - {id: T2_turn_of_month, def: "S&P + 0.5x extra on the last trading day and first 3 trading days of each month", why: "payroll/pension inflows arrive at month turn (Lakonishok-Smidt 1988; Etula-Rinne-Suominen-Vaittinen 2020)", paper_sample_end: 1986-12-31}
+  - {id: T3_put_write, def: "CBOE PUT index (sell 1-month ATM S&P puts, T-bill collateral) instead of the S&P; and 50/50 S&P + PUT", why: "variance risk premium: buyers overpay for crash insurance", paper_sample_end: 2007-12-31}
+  - {id: T4_covered_call, def: "CBOE BXM (S&P + sell 1-month ATM calls)", why: "variance risk premium via calls", paper_sample_end: 2004-12-31}
+  - {id: T5_vrp_timing, def: "equity weight 1.3 when VIX^2 minus trailing-1m realized variance is in its top third (trailing 10y), 0.7 in bottom third, else 1.0", why: "Bollerslev-Tauchen-Zhou 2009: VRP predicts the equity premium", paper_sample_end: 2007-12-31}
+  - {id: T6_vol_managed_levered, def: "equity weight = min(1.5, c / prior-month daily realized variance), c set so average weight = 1 over the trailing history only; financing T-bill + 0.5%", why: "Moreira-Muir 2017 (with the leverage the paper uses)", paper_sample_end: 2015-12-31}
+  - {id: T7_seasonality, def: "top 500: k=1.3/0.7 for top/bottom quintile of the stock's average return in the same calendar month over years t-1..t-20 (>= 5 obs)", why: "Heston-Sadka 2008 return seasonality (recurring flows/announcements)", paper_sample_end: 2002-12-31}
+  - {id: T8_deletion_rebound, def: "sleeve: hold every non-distress S&P deletion for 12 months at its last index weight, funded pro-rata", why: "forced index selling depresses deleted stocks, then they rebound (Coval-Stafford style price pressure)", paper_sample_end: null}
+  - {id: T9_earnings_month, def: "k=1.3 for members expected to report this month (filed a 10-Q/10-K in the same calendar month 12 months earlier)", why: "Frazzini-Lamont 2007 earnings announcement premium", paper_sample_end: 2004-12-31}
+  - {id: ROUND3_GATE, gate: "t >= 3 on the design sample, deflated Sharpe >= 0.95 at the full trial count, consistent sign, AND positive after the paper's sample ended"}
+
+# Registered 2026-10-05 after round 3 (T2 passed the gate: design t 4.6, DSR 0.976, after-paper 1987-2026 t 3.6;
+# weaker since 2000: +1.2%/yr t 1.65). Live paper test from the 2026-10-05 close:
+live_tom:
+  id: LIVE_TOM
+  definition: "VOO (dividends reinvested) + 0.5x extra S&P exposure (futures-style, financed at T-bill, 2 bp per entry/exit) on the last trading day and first 3 trading days of each month. Turn-of-month days come from the NYSE calendar known in advance (no look-ahead)."
+
+# ROUND 4 (registered 2026-10-07 before running). The user asked for power-law-based and quant-within-the-S&P ideas.
+round4:
+  - {id: U1_diversity_p05, def: "top 500 by cap, weights proportional to cap^0.5, rebalanced monthly", why: "Fernholz stochastic portfolio theory: with a stable (Zipf) capital distribution, diversity weighting earns the excess growth rate via rebalancing"}
+  - {id: U2_diversity_p08, def: "same with cap^0.8 (close to the p used in practice)", why: "same, milder"}
+  - {id: U5_ml_boosting, def: "HistGradientBoosting on every FIAM/JKP characteristic in the context (32 features, ranked cross-sectionally) predicting next-month return rank among S&P members; retrained each June on all PRIOR data (expanding, labels ended); monthly bounded tilt k = 1 + 0.30*s, TE <= 2%", why: "Gu-Kelly-Xiu 2020: machine learning finds nonlinear signal in characteristics"}
+  - {id: U5b_ml_ridge, def: "same pipeline with ridge regression", why: "linear benchmark for U5"}
+  - {id: ROUND4_GATE, gate: "U1/U2: excess vs top-500 cap weight t >= 3 on 1927-2015, DSR >= 0.95 at full trial count, same sign in 1927-69/1970-95/1996-2015. U5/U5b: walk-forward 2005-2015 net excess t >= 3, DSR >= 0.95; 2016-2023 reported (model never saw it, but the researcher has seen that era)"}
+
+# TOP-4% TOURNAMENT (registered 2026-10-07 before any scoring code was written).
+# Target: S&P members in the top 4% by next-12-month total return at each June formation.
+# Each hypothesis scores members using only data dated <= the formation; it "picks" its top 4% (~20 names).
+# Round 1 = formations 2000-2014 (15). Promote if hit-rate lift > 1 with t >= 2 across years AND the
+#   equal-weight picks beat the S&P (cap-weighted) on average. Round 2 = 2015-2019 (5): promote if hit rate
+#   > 4% AND picks beat the S&P. Round 3 = 2020-2025 (6): final scorecard. Score: higher = more likely top 4%.
+top4_batch1:
+  - {id: Q01_vol_math, score: "trailing 36m monthly return volatility", why: "pure lognormal math: P(R > high cutoff) rises with sigma far faster than with mu"}
+  - {id: Q02_lognormal_tailprob, score: "P(log(1+R) > log(1+c)) under N(mu, sigma); mu = market 12m + 0.2*(own 12-1 momentum - market), sigma = trailing 36m vol*sqrt(12); c = last year's realized top-4% cutoff", why: "explicit probability model of the tail"}
+  - {id: Q03_near_52w_high, score: "price / max price over prior 12 months", why: "anchoring at the 52-week high (George-Hwang 2004) delays winners' repricing"}
+  - {id: Q04_fresh_3y_high, score: "at a 36-month high this month (1/0), ties broken by 12m return", why: "breakouts start runs"}
+  - {id: Q05_rank_climber, score: "log cap rank 36m ago minus log cap rank now (climbing the ladder)", why: "momentum in rank space"}
+  - {id: Q06_small_in_large, score: "-log market cap", why: "Gibrat fails downward: small members grow faster; more room"}
+  - {id: Q07_fallen_angel, score: "drawdown from 36m high (deeper = higher score)", why: "tail winners over 1y are often violent rebounds"}
+  - {id: Q08_convexity, score: "return last 6m minus return prior 6m", why: "acceleration precedes parabolic moves"}
+  - {id: Q09_positive_skew, score: "skewness of monthly returns over 36m", why: "skewed history -> skewed future"}
+  - {id: Q10_max_day, score: "max daily return in the formation month", why: "lottery-like jumps cluster"}
+  - {id: Q11_high_beta, score: "36m beta vs the S&P", why: "the tail of a 1y return distribution is dominated by high-beta names in up years"}
+  - {id: Q12_crash_rebound_beta, score: "beta * max(0, -market trailing 12m return)", why: "after crashes, high beta snaps back hardest"}
+  - {id: Q13_revenue_accel, score: "sale_gr1 minus annualized sale_gr3", why: "growth above its own trend"}
+  - {id: Q14_operating_leverage, score: "rank(gross margin) * rank(sale_gr1)", why: "high-margin revenue growth drops to earnings"}
+  - {id: Q15_rd_capital, score: "rd5_at", why: "accumulated R&D = real options on future products"}
+  - {id: Q16_reinvestment_runway, score: "rank(capx_gr3) * rank(op_at)", why: "profitable firms investing heavily compound"}
+  - {id: Q17_asset_light_growth, score: "rank(sale_gr1) - rank(at_gr1)", why: "growth without capital = scalable"}
+  - {id: Q18_productivity_jump, score: "sale_emp_gr1", why: "revenue per employee jumping = operating breakthrough"}
+  - {id: Q19_earnings_surprise, score: "niq_su (standardized unexpected earnings)", why: "post-earnings drift"}
+  - {id: Q20_analyst_disagreement, score: "eps_stdevest / |eps_meanest|", why: "uncertainty is where tails live"}
+  - {id: Q21_garp, score: "rank(sale_gr3) + rank(sale_me)", why: "growth at a reasonable price"}
+  - {id: Q22_rule_of_40, score: "sale_gr1 + ebit_sale", why: "the growth+margin heuristic venture investors use"}
+  - {id: Q23_young, score: "-age", why: "young firms sit earlier on their S-curve"}
+  - {id: Q24_text_transformer, score: "-a5_similarity (latest 10-K vs previous)", why: "firms rewriting their 10-K are transforming"}
+  - {id: Q25_rival_buzz, score: "3y change in b4_rival_mentions_v2", why: "becoming the firm everyone worries about"}
+  - {id: Q26_embedding_uniqueness, score: "cosine distance of latest 10-K ChronoBERT embedding from its SIC2 peers' centroid", why: "unique businesses face less competition"}
+  - {id: Q27_embedding_pivot, score: "cosine distance between latest and previous 10-K embeddings", why: "business-model pivots"}
+  - {id: Q28_looks_like_recent_winners, score: "max cosine similarity of latest 10-K embedding to embeddings of the previous 3 formations' top-4% winners (labels ended)", why: "winners cluster in themes"}
+  - {id: Q29_insider_buying, score: "a4 opportunistic net insider buying (2007+)", why: "insiders know"}
+  - {id: Q30_shareholder_yield, score: "eqnpo_12m (net equity payout)", why: "shrinking share count"}
+  - {id: Q31_leader_gap, score: "log(max cap in SIC2 among members) - log(own cap)", why: "room to grow to the leader's size (power-law ladder)"}
+  - {id: Q32_ml_top4, score: "HistGradientBoosting classifier P(top 4%) on all batch-1 features, trained only on formations whose labels ended", why: "let the data combine everything"}
+  - {id: Q33_ensemble_rank, score: "mean percentile rank of Q01-Q31 (available ones)", why: "wisdom of many weak signals"}
+  - {id: Q34_cheap_high_vol, score: "rank(vol36) + rank(be_me)", why: "cheaply priced real options"}
+
+# Batch 1 result (2026-10-07): 11 of 34 promoted from round 1 (hit-rate lifts up to 3.6x), 0 survived round 2.
+# Diagnosis: top-4% predictors are mostly volatility/smallness, which also fill the bottom 4%.
+# BATCH 2 (registered before running): separate future winners from future losers inside the volatile set.
+top4_batch2:
+  - {id: V01_up_down_vol_ratio, score: "upside semideviation / downside semideviation of monthly returns, 36m"}
+  - {id: V02_convex_payoff, score: "beta in up-market months minus beta in down-market months, 36m"}
+  - {id: V03_vol_minus_distress, score: "rank(vol36) - rank(o_score) + rank(z_score)"}
+  - {id: V04_vol_x_quality, score: "rank(vol36) + rank(qmj)"}
+  - {id: V05_two_stage_tail, score: "among the top 30% by vol36, rank by gp_at (others excluded)"}
+  - {id: V06_past_tail_asymmetry, score: "36m count of months > +10% minus months < -10%"}
+  - {id: V07_net_tail_prob, score: "P(R > last year's 96th pct) - P(R < last year's 4th pct) under lognormal; mu = market 12m + 0.2*(12-1 momentum - market) + 0.05*(rank(gp_at)-0.5), sigma = vol36"}
+  - {id: V08_small_profitable, score: "rank(-log cap) + rank(op_at)"}
+  - {id: V09_fallen_but_solvent, score: "rank(dd36) + rank(z_score)"}
+  - {id: V10_leader_gap_quality, score: "rank(leader_gap) + rank(qmj)"}
+  - {id: V11_convexity_quality, score: "rank(ret6 - ret6prev) + rank(gp_at)"}
+  - {id: V12_ensemble_round1_survivors, score: "mean rank of the 11 batch-1 round-1 survivors (biased in round 1 by construction; judged on rounds 2-3 only)"}
+  - {id: V13_ml_two_sided, score: "P(top 4%) - P(bottom 4%) from a 3-class gradient-boosting classifier, trained on ended labels only"}
+  - {id: V14_vol_scaled_momentum, score: "ret12_1 / vol36"}
+  - {id: V15_small_value, score: "rank(-log cap) + rank(be_me)"}
+  - {id: V16_bold_within_industry, score: "vol36 / median vol36 of SIC2 peers"}
+  - {id: V17_vol_without_lottery, score: "rank(vol36) - rank(maxday)"}
+  - {id: V18_innovator_on_sale, score: "rank(rd5_at) + rank(dd36)"}
+
+# Batch 2 result (2026-10-07): 7 of 18 promoted, 0 survived round 2; every hypothesis catches losers at
+# about the same rate as winners (tails are two-sided).
+# BATCH 3 (registered before running). NEW TARGET = Bessembinder's definition: top 4% by DOLLAR wealth created
+# over the next 12 months (cap at formation x 12m return). Picks are cap-weighted (also EW reported).
+# Promotion: dollar-hit lift > 1 with t >= 2, cap-weighted picks beat the S&P, AND hit rate >= W01 (size alone).
+# Hindsight flag: megacaps dominated 2015-2025, which the researcher knows; round 1 (2000-2014) is the fair filter.
+top4_batch3:
+  - {id: W01_size_only, score: "market cap (the bar every other idea must beat)"}
+  - {id: W02_size_momentum, score: "rank(cap) + rank(ret12_1)"}
+  - {id: W03_size_quality, score: "rank(cap) + rank(qmj)"}
+  - {id: W04_size_growth, score: "rank(cap) + rank(sale_gr1)"}
+  - {id: W05_size_rd, score: "rank(cap) + rank(rd5_at)"}
+  - {id: W06_size_near_high, score: "rank(cap) + rank(near_high12)"}
+  - {id: W07_megacap_convexity, score: "among the 50 largest, rank by ret6 - ret6prev"}
+  - {id: W08_dollar_momentum, score: "cap x trailing 12m return (dollars added last year)"}
+  - {id: W09_large_rank_climber, score: "rank_climb among the 200 largest"}
+  - {id: W10_ml_dollar, score: "gradient-boosting P(dollar top 4%) on all features incl. log cap, ended labels only"}
+  - {id: W11_hub_firm, score: "rank(b4 rival-mention LEVEL, v2) + rank(cap)"}
+  - {id: W12_size_low_vol, score: "rank(cap) - rank(vol36) (steady giants)"}
+
+# Batch 3 result: size predicts DOLLAR winners (37.7% hit rate, 9x base) but cap-weighted picks lost to the
+# S&P in round 1 (+0.7%/yr vs +4.6%); none promoted. Size-based picks did win 2015-2026 (the concentration era).
+# BATCH 4 (registered before running), back to the return target, with loser rate tracked:
+top4_batch4:
+  - {id: X01_catch_up, score: "rank(SIC2 cap-weighted 12m return) + rank(own SIC2-relative 12m return, negated): laggards inside hot industries"}
+  - {id: X02_winner_industries, score: "share of last formation's top-4% winners in the firm's SIC2 (labels ended), tie-break vol36: themes persist"}
+  - {id: X03_text_theme_laggard, score: "mean 12m return of the firm's 10 nearest 10-K-embedding neighbors among members, minus own 12m return"}
+  - {id: X04_text_theme_momentum, score: "mean 12m return of the 10 nearest 10-K-embedding neighbors (own excluded)"}
+  - {id: X05_first_profits, score: "1 if ni_be turned positive this year from negative a year ago, tie-break sale_gr1"}
+  - {id: X06_margin_expansion, score: "1y change in gross margin (gp_at/at_turnover)"}
+  - {id: X07_coiled_spring, score: "rank(vol36 / vol of last 6 months) + rank(ret12_1)"}
+  - {id: X08_sales_up_price_down, score: "rank(sale_gr1) - rank(ret12)"}
+  - {id: X09_beaten_sector_best_firm, score: "rank(-SIC2 36m return) + rank(qmj)"}
+  - {id: X10_like_5y_winners, score: "max 10-K embedding similarity to the top-4% winners of the previous 5 formations (labels ended)"}
+  - {id: X11_insider_buying_in_volatile, score: "a4 among the top half by vol36"}
+
+# Batch 4 result: 1 of 11 promoted (X03 text-theme laggard), died in round 2.
+# BATCH 5 (registered before running): built FROM the 2000-2014 winner-vs-loser profile, so round 1 is
+# in-sample for them; judged ONLY on round 2 (2015-19) and round 3 (2020-25).
+top4_batch5:
+  - {id: Y01_profile_composite_volatile, score: "within top-third vol36: rank(qmj)+rank(near_high12)+rank(gp_at)-rank(maxday)-rank(dd36)"}
+  - {id: Y02_strong_volatile, score: "within top-third vol36: rank(near_high12)"}
+  - {id: Y03_quality_volatile, score: "within top-third vol36: rank(qmj)+rank(gp_at)"}
+  - {id: Y04_profile_all_members, score: "all members: rank(qmj)+rank(near_high12)+rank(gp_at)-rank(maxday)"}
+  - {id: Y05_tailprob_x_profile, score: "rank(vol36) + Y04 score rank"}
+
+# Batch 5 result: Y01 and Y03 reached round 3 (first ones to); both lost to the S&P there (Y01 +10.4%/yr vs +17.2%).
+# BATCH 6 (registered before running): REGIME SWITCHING between the two styles that win in different eras:
+# "giants" (W01 size, the dollar-winner picks) vs "volatile quality" (Y03).
+top4_batch6:
+  - {id: Z01_size_momentum_switch, score: "if the 50 largest members beat the equal-weight S&P over the past 12m, pick W01 (largest); else Y03", judged_on: "rounds 2-3 (Y03 was built on round 1)"}
+  - {id: Z02_concentration_trend_switch, score: "if the top-10 share of member cap rose over the past 12m, pick W01; else Y03", judged_on: "rounds 2-3"}
+  - {id: Z03_winner_size_echo, score: "last formation's top-4% winners' median size percentile p (labels ended): pick members whose size percentile is within 0.15 of p, ranked by vol36", judged_on: "all rounds"}
+  - {id: Z04_ml_with_regime, score: "gradient-boosting P(top 4%) on batch-1 features plus market-level regime features (past-12m top-50 minus EW return, top-10 share change, market 12m return, cross-sectional dispersion)", judged_on: "all rounds"}
+
+# FACTOR SELECTION (registered 2026-10-07 before running). User: "see which factors did best in the past and weight from there".
+# Factor universe: every numeric FIAM/JKP characteristic (2000-2023). Factor return each month = cap-weighted
+# top-tercile minus bottom-tercile return among S&P members (characteristic at prior month end).
+# Walk-forward: each month uses ONLY factor returns already realized. Bounded S&P tilt k = 1 + 0.30*s, TE <= 2%.
+# Judged on 2005-2015 (first 60m used to start) and 2016-2023 (model never saw it; researcher has seen the era).
+# Gate: net excess t >= 3, deflated Sharpe >= 0.95 at the full trial count, positive in both periods.
+factor_selection:
+  - {id: F1_best5_trailing60, def: "pick the 5 factors with the highest |trailing 60m mean return|, signed by that mean; composite = mean of signed ranks"}
+  - {id: F2_best5_trailing12, def: "same with trailing 12m (factor momentum, Gupta-Kelly 2019)"}
+  - {id: F3_all_tstat_weighted, def: "all factors, weight = trailing 60m t-stat clipped to [-3, 3] (shrinks toward zero when evidence is weak)"}
