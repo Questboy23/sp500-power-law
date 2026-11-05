@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T22:30:25",
+ "generated_at": "2026-11-05T17:30:29",
  "data_grade": "free-data grade (CRSP extract via Kaggle re-upload, 1926-2024; Yahoo 2025+; FIAM/JKP characteristics 2000-2023; SEC EDGAR)",
  "verdict": {
   "headline": "Nothing beat the S&P 500 well enough to use, so the system holds the S&P 500.",
@@ -3456,9 +3456,9 @@
  "live": {
   "started": true,
   "start_date": "2026-09-30",
-  "last_mark": "2026-11-04",
-  "trading_days": 25,
-  "weights_asof": "03-Nov-2026",
+  "last_mark": "2026-11-05",
+  "trading_days": 26,
+  "weights_asof": "04-Nov-2026",
   "marks": [
    {
     "date": "2026-09-30",
@@ -3667,29 +3667,37 @@
     "VOO": 100559.32,
     "SP500TR": 100556.16,
     "TOM": 98703.5
+   },
+   {
+    "date": "2026-11-05",
+    "SYSTEM": 96127.5,
+    "SHADOW": 96356.93,
+    "VOO": 96163.28,
+    "SP500TR": 96176.37,
+    "TOM": 94378.72
    }
   ],
   "returns": {
-   "SYSTEM": 0.004941,
-   "SHADOW": 0.00688,
-   "VOO": 0.005593,
-   "SP500TR": 0.005562
+   "SYSTEM": -0.038725,
+   "SHADOW": -0.036431,
+   "VOO": -0.038367,
+   "SP500TR": -0.038236
   },
   "vs_voo": {
-   "SYSTEM": -0.000652,
-   "SHADOW": 0.001287
+   "SYSTEM": -0.000358,
+   "SHADOW": 0.001937
   },
   "values": {
-   "SYSTEM": 100494.08,
-   "SHADOW": 100688.0,
-   "VOO": 100559.32,
-   "SP500TR": 100556.16
+   "SYSTEM": 96127.5,
+   "SHADOW": 96356.93,
+   "VOO": 96163.28,
+   "SP500TR": 96176.37
   },
   "costs": {
    "SYSTEM": 0.401272,
    "SHADOW": 0.388891,
    "VOO": 0.0,
-   "TOM": 9.664693
+   "TOM": 19.102565
   },
   "pending_adds": {
    "SYSTEM": {
@@ -3947,13 +3955,13 @@
   },
   "tom": {
    "start_date": "2026-10-05",
-   "trading_days": 22,
-   "value": 98703.5,
-   "return": -0.012965,
-   "voo_same_period": -0.010585,
-   "vs_voo": -0.00238
+   "trading_days": 23,
+   "value": 94378.72,
+   "return": -0.056213,
+   "voo_same_period": -0.053838,
+   "vs_voo": -0.002375
   },
-  "system_vs_sp500tr": -0.000621,
+  "system_vs_sp500tr": -0.000489,
   "shadow_tilts": {
    "most_overweight": {
     "APO": 1.125,

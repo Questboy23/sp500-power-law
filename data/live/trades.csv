@@ -1,0 +1,28 @@
+date,portfolio,action,ticker,dollars,note
+2026-09-30,ALL,INIT,,100000.0,SYSTEM = S&P 500 + rule I3; SHADOW = LIVE_SHADOW (failed gate)
+2026-09-30,SHADOW,RESTATE tilts before first mark,,0,"A5/B4 text signals arrived after init; same 9/30 close prices, no trading day elapsed"
+2026-09-30,SHADOW,RESTATE tilts before first mark,,0,text features extended to 2026 filings; same 9/30 closes
+2026-10-05,SYSTEM,SCHEDULE buy +5 trading days,VYLR,0,rule I3
+2026-10-05,SHADOW,SCHEDULE buy +5 trading days,VYLR,0,rule I3
+2026-10-06,SYSTEM,SELL index deletion,CTVA,14.08,
+2026-10-06,SYSTEM,SELL index deletion,PSKY,7.8,
+2026-10-06,SYSTEM,SELL index deletion,WBD,117.2,
+2026-10-06,SYSTEM,SCHEDULE buy +5 trading days,SKYD,0.0,rule I3
+2026-10-06,SYSTEM,SCHEDULE buy +5 trading days,TWLO,0.0,rule I3
+2026-10-06,SHADOW,SELL index deletion,CTVA,13.6,
+2026-10-06,SHADOW,SELL index deletion,PSKY,6.93,
+2026-10-06,SHADOW,SELL index deletion,WBD,101.66,
+2026-10-06,SHADOW,SCHEDULE buy +5 trading days,SKYD,0.0,rule I3
+2026-10-06,SHADOW,SCHEDULE buy +5 trading days,TWLO,0.0,rule I3
+2026-10-12,SYSTEM,BUY index addition (+5d),VYLR,74.43,first seen 2026-10-05
+2026-10-12,SHADOW,BUY index addition (+5d),VYLR,74.48,first seen 2026-10-05
+2026-10-13,SYSTEM,BUY index addition (+5d),SKYD,7.57,first seen 2026-10-06
+2026-10-13,SYSTEM,BUY index addition (+5d),TWLO,66.16,first seen 2026-10-06
+2026-10-13,SHADOW,BUY index addition (+5d),SKYD,7.57,first seen 2026-10-06
+2026-10-13,SHADOW,BUY index addition (+5d),TWLO,66.2,first seen 2026-10-06
+2026-11-03,SYSTEM,SELL index deletion,KVUE,57.04,
+2026-11-03,SHADOW,SELL index deletion,KVUE,59.25,
+2026-11-03,SYSTEM,REINVEST cash pro-rata,,56.99,
+2026-11-03,SHADOW,REINVEST cash pro-rata,,59.19,
+2026-11-04,SYSTEM,SCHEDULE buy +5 trading days,OKTA,0,rule I3
+2026-11-04,SHADOW,SCHEDULE buy +5 trading days,OKTA,0,rule I3
