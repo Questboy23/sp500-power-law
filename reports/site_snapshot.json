@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T17:30:29",
+ "generated_at": "2026-11-05T19:30:13",
  "data_grade": "free-data grade (CRSP extract via Kaggle re-upload, 1926-2024; Yahoo 2025+; FIAM/JKP characteristics 2000-2023; SEC EDGAR)",
  "verdict": {
   "headline": "Nothing beat the S&P 500 well enough to use, so the system holds the S&P 500.",
