@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T22:30:14",
+ "generated_at": "2026-11-13T22:30:45",
  "data_grade": "free-data grade (CRSP extract via Kaggle re-upload, 1926-2024; Yahoo 2025+; FIAM/JKP characteristics 2000-2023; SEC EDGAR)",
  "verdict": {
   "headline": "Nothing beat the S&P 500 well enough to use, so the system holds the S&P 500.",
@@ -3456,9 +3456,9 @@
  "live": {
   "started": true,
   "start_date": "2026-09-30",
-  "last_mark": "2026-11-10",
-  "trading_days": 29,
-  "weights_asof": "09-Nov-2026",
+  "last_mark": "2026-11-13",
+  "trading_days": 32,
+  "weights_asof": "12-Nov-2026",
   "marks": [
    {
     "date": "2026-09-30",
@@ -3699,43 +3699,63 @@
     "VOO": 98379.14,
     "SP500TR": 98381.15,
     "TOM": 96553.46
+   },
+   {
+    "date": "2026-11-11",
+    "SYSTEM": 99597.15,
+    "SHADOW": 99770.17,
+    "VOO": 99641.87,
+    "SP500TR": 99668.94,
+    "TOM": 97792.75
+   },
+   {
+    "date": "2026-11-12",
+    "SYSTEM": 99243.09,
+    "SHADOW": 99422.22,
+    "VOO": 99306.57,
+    "SP500TR": 99324.2,
+    "TOM": 97463.68
+   },
+   {
+    "date": "2026-11-13",
+    "SYSTEM": 98846.35,
+    "SHADOW": 99038.05,
+    "VOO": 98932.74,
+    "SP500TR": 98934.58,
+    "TOM": 97096.79
    }
   ],
   "returns": {
-   "SYSTEM": -0.016825,
-   "SHADOW": -0.0148,
-   "VOO": -0.016209,
-   "SP500TR": -0.016189
+   "SYSTEM": -0.011536,
+   "SHADOW": -0.00962,
+   "VOO": -0.010673,
+   "SP500TR": -0.010654
   },
   "vs_voo": {
-   "SYSTEM": -0.000616,
-   "SHADOW": 0.001409
+   "SYSTEM": -0.000864,
+   "SHADOW": 0.001053
   },
   "values": {
-   "SYSTEM": 98317.49,
-   "SHADOW": 98520.03,
-   "VOO": 98379.14,
-   "SP500TR": 98381.15
+   "SYSTEM": 98846.35,
+   "SHADOW": 99038.05,
+   "VOO": 98932.74,
+   "SP500TR": 98934.58
   },
   "costs": {
-   "SYSTEM": 0.401272,
-   "SHADOW": 0.388891,
+   "SYSTEM": 0.44676,
+   "SHADOW": 0.434458,
    "VOO": 0.0,
    "TOM": 19.102565
   },
   "pending_adds": {
-   "SYSTEM": {
-    "OKTA": "2026-11-04"
-   },
-   "SHADOW": {
-    "OKTA": "2026-11-04"
-   },
+   "SYSTEM": {},
+   "SHADOW": {},
    "VOO": {},
    "TOM": {}
   },
   "n_holdings": {
-   "SYSTEM": 502,
-   "SHADOW": 502,
+   "SYSTEM": 503,
+   "SHADOW": 503,
    "VOO": 1,
    "TOM": 1
   },
@@ -3955,6 +3975,22 @@
     "ticker": "OKTA",
     "dollars": 0.0,
     "note": "rule I3"
+   },
+   {
+    "date": "2026-11-11",
+    "portfolio": "SYSTEM",
+    "action": "BUY index addition (+5d)",
+    "ticker": "OKTA",
+    "dollars": 45.49,
+    "note": "first seen 2026-11-04"
+   },
+   {
+    "date": "2026-11-11",
+    "portfolio": "SHADOW",
+    "action": "BUY index addition (+5d)",
+    "ticker": "OKTA",
+    "dollars": 45.57,
+    "note": "first seen 2026-11-04"
    }
   ],
   "shadow_info": {
@@ -3979,13 +4015,13 @@
   },
   "tom": {
    "start_date": "2026-10-05",
-   "trading_days": 26,
-   "value": 96553.46,
-   "return": -0.034465,
-   "voo_same_period": -0.032036,
-   "vs_voo": -0.002429
+   "trading_days": 29,
+   "value": 97096.79,
+   "return": -0.029032,
+   "voo_same_period": -0.026589,
+   "vs_voo": -0.002443
   },
-  "system_vs_sp500tr": -0.000637,
+  "system_vs_sp500tr": -0.000882,
   "shadow_tilts": {
    "most_overweight": {
     "APO": 1.125,

@@ -26,3 +26,5 @@ date,portfolio,action,ticker,dollars,note
 2026-11-03,SHADOW,REINVEST cash pro-rata,,59.19,
 2026-11-04,SYSTEM,SCHEDULE buy +5 trading days,OKTA,0,rule I3
 2026-11-04,SHADOW,SCHEDULE buy +5 trading days,OKTA,0,rule I3
+2026-11-11,SYSTEM,BUY index addition (+5d),OKTA,45.49,first seen 2026-11-04
+2026-11-11,SHADOW,BUY index addition (+5d),OKTA,45.57,first seen 2026-11-04
