@@ -175,6 +175,13 @@ def _is_trueup_day(d: pd.Timestamp, tdays: pd.DatetimeIndex) -> bool:
     return False
 
 
+def _final_days(days: pd.DatetimeIndex, now: pd.Timestamp) -> pd.DatetimeIndex:
+    """Drop today's bar before 16:30 ET: Yahoo serves the intraday bar as today's close."""
+    today = now.normalize().tz_localize(None)
+    cut = today if now.hour * 60 + now.minute < 990 else today + pd.Timedelta(days=1)
+    return days[days < cut]
+
+
 def daily() -> list:
     """Run after the close. For every trading day after the last mark: splits, dividends (DRIP),
     index changes (today's holdings file is applied on the latest day only), due additions,
@@ -189,7 +196,7 @@ def daily() -> list:
     days = close.index[close.index > last]
     # only mark a day once its closes exist (Yahoo posts index levels before stock closes)
     complete = [d for d in days if pd.notna(close.at[d, "VOO"]) and close.loc[d].notna().mean() >= 0.9]
-    days = pd.DatetimeIndex(complete)
+    days = _final_days(pd.DatetimeIndex(complete), pd.Timestamp.now(tz="America/New_York"))
     if not len(days):
         print("no complete new trading day yet"); save(s); return []
     trades = []

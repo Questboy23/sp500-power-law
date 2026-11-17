@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T22:30:28",
+ "generated_at": "2026-11-17T17:30:15",
  "data_grade": "free-data grade (CRSP extract via Kaggle re-upload, 1926-2024; Yahoo 2025+; FIAM/JKP characteristics 2000-2023; SEC EDGAR)",
  "verdict": {
   "headline": "Nothing beat the S&P 500 well enough to use, so the system holds the S&P 500.",
@@ -3456,9 +3456,9 @@
  "live": {
   "started": true,
   "start_date": "2026-09-30",
-  "last_mark": "2026-11-16",
-  "trading_days": 33,
-  "weights_asof": "13-Nov-2026",
+  "last_mark": "2026-11-17",
+  "trading_days": 34,
+  "weights_asof": "16-Nov-2026",
   "marks": [
    {
     "date": "2026-09-30",
@@ -3731,23 +3731,31 @@
     "VOO": 97060.76,
     "SP500TR": 97051.0,
     "TOM": 95259.54
+   },
+   {
+    "date": "2026-11-17",
+    "SYSTEM": 95964.43,
+    "SHADOW": 96176.03,
+    "VOO": 96052.0,
+    "SP500TR": 96056.85,
+    "TOM": 94269.5
    }
   ],
   "returns": {
-   "SYSTEM": -0.030429,
-   "SHADOW": -0.02838,
-   "VOO": -0.029392,
-   "SP500TR": -0.02949
+   "SYSTEM": -0.040356,
+   "SHADOW": -0.03824,
+   "VOO": -0.03948,
+   "SP500TR": -0.039431
   },
   "vs_voo": {
-   "SYSTEM": -0.001036,
-   "SHADOW": 0.001012
+   "SYSTEM": -0.000876,
+   "SHADOW": 0.00124
   },
   "values": {
-   "SYSTEM": 96957.11,
-   "SHADOW": 97161.97,
-   "VOO": 97060.76,
-   "SP500TR": 97051.0
+   "SYSTEM": 95964.43,
+   "SHADOW": 96176.03,
+   "VOO": 96052.0,
+   "SP500TR": 96056.85
   },
   "costs": {
    "SYSTEM": 0.44676,
@@ -4023,13 +4031,13 @@
   },
   "tom": {
    "start_date": "2026-10-05",
-   "trading_days": 30,
-   "value": 95259.54,
-   "return": -0.047405,
-   "voo_same_period": -0.045008,
-   "vs_voo": -0.002397
+   "trading_days": 31,
+   "value": 94269.5,
+   "return": -0.057305,
+   "voo_same_period": -0.054933,
+   "vs_voo": -0.002372
   },
-  "system_vs_sp500tr": -0.000939,
+  "system_vs_sp500tr": -0.000924,
   "shadow_tilts": {
    "most_overweight": {
     "APO": 1.125,

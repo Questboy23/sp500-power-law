@@ -13,5 +13,5 @@ cd "$(dirname "$0")"
     if .venv/bin/python -W ignore -m src.live.run daily; then break; fi
     echo "daily failed (attempt $i); retrying in 120s"; sleep 120
   done
-  .venv/bin/python -W ignore -m src.publish && "$HOME/kalshi-paper/scripts/refresh_sp500_artifacts.sh" --no-publish
+  .venv/bin/python -W ignore -m src.publish
 } >> data/live/cron.log 2>&1

@@ -1,8 +1,8 @@
 {
  "start_date": "2026-09-30",
  "note": "SYSTEM = S&P 500 + rule I3; SHADOW = LIVE_SHADOW (failed gate)",
- "weights_asof": "13-Nov-2026",
- "last_mark": "2026-11-16",
+ "weights_asof": "16-Nov-2026",
+ "last_mark": "2026-11-17",
  "universe": [
   "A",
   "AAPL",
@@ -2045,7 +2045,7 @@
    "costs": 0.0
   },
   "TOM": {
-   "value": 95259.54383021234,
+   "value": 94269.49849258616,
    "start": "2026-10-05",
    "on": false,
    "costs": 19.102565480347394,
